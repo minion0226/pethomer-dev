@@ -1,0 +1,8 @@
+{
+  "name": "pethomer",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite",
+  "id": "505cfb2a"
+}
