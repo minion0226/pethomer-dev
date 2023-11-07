@@ -28,9 +28,5 @@ yarn-error.log*
 # Optional eslint cache
 .eslintcache
 
-# android project
-android
-
-
 # lock file
 package-lock.json
