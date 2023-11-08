@@ -49,8 +49,8 @@ const AppPhoneInput = (props: Props) => {
       <IonRow className="px-2 w-full border-2 flex-nowrap border-gray-200 rounded-md">
         <IonSelect className="w-24 mr-1" justify="end">
           {
-            CountryCode.map(code => {
-              return <IonSelectOption value={code}>{code}</IonSelectOption>
+            CountryCode.map((code:string, index: number) => {
+              return <IonSelectOption value={code} key={index}>{code}</IonSelectOption>
             })
           }
         </IonSelect>

@@ -53,8 +53,8 @@ const Walkthrough: React.FC = () => {
       
       <IonRow className='flex flex-col justify-end items-center z-10 pb-3 px-6 relative'>
         <ForgroundBottom className='absolute bottom-0 left-0 w-full bg-gradient-to-b h-full'></ForgroundBottom>
-        {t('walkthroughPage.title').split('_').map(item=>{
-          return <IonText className='text-white text-3xl text-start block w-full z-10'>{item}</IonText>
+        {t('walkthroughPage.title').split('_').map((item:string, index:number)=>{
+          return <IonText key={index} className='text-white text-3xl text-start block w-full z-10'>{item}</IonText>
         })}
         <IonText className='text-white text-sm text-start block z-10'>{t('walkthroughPage.description')}</IonText>
         <IonRow className='w-full flex justify-between items-center z-10'>
