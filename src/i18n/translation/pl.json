@@ -2,8 +2,28 @@
   "translation": {
     "language": "Polish",
     "base": {
-      "title": "Pet Homer",
-      "continue": "Kontynuować"
+      "title": "Zwierzęta Homera",
+      "button": {
+        "skip": "Pominąć",
+        "continue": "Kontynuować",
+        
+        "signup": "Zarejestruj się",
+        "login": "Zaloguj sie",
+        "loginfacebook": "Zaloguj się z Facebook",
+        "logingoogle": "Zaloguj się z Google"
+
+      },
+      "label": {
+        "email": "Adres E-mail",
+        "firstname": "Imię",
+        "lastname": "Nazwisko",
+        "dob": "Data urodenia (tylko dla opiekunów)",
+        "phone": "Numer telefonu",
+        "password": "Hasło",
+        "terms": "rejestrując się, akceptujesz_regulamin",
+        "forgot": "Zresetuj hasło?",
+        "or": "Lub"
+      }
     },
   
     "languagePage": {
@@ -13,8 +33,8 @@
     },
   
     "walkthrough": {
-      "title": "Connecting Pets and Sitters, Anytime, Anywhere.",
-      "body": "lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose"
+      "title": "Łączenie_Zwierzęta i opiekunowie,_Zawsze i wszędzie.",
+      "body": "lorem ipsum” odkryje wiele witryn internetowych, które są jeszcze w powijakach. Różne wersje ewoluowały przez lata, czasem przez przypadek, czasem celowo"
     }
   }
 }

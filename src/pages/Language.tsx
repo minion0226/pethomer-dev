@@ -59,7 +59,7 @@ const Language: React.FC = () => {
         <IonText className='text-xl mb-2'>{t('languagePage.Select')}</IonText>
         <Selection className={`w-full ${item === 'en'?'active': ''}`} fill='clear' onClick={() => handleClick('en')}>{t('languagePage.english')}</Selection>
         <Selection className={`w-full ${item === 'pl'?'active': ''}`} fill='clear' onClick={() => handleClick('pl')}>{t('languagePage.polish')}</Selection>
-        <IonButton onClick={handleContinue} className='w-full mt-2 bg-yellow-400 text-white rounded-xl' fill='clear'>{t('base.continue')}</IonButton>
+        <IonButton onClick={handleContinue} className='w-full mt-2 bg-yellow-400 text-white rounded-xl' fill='clear'>{t('base.button.continue')}</IonButton>
       </Container>
     </IonPage>
   );

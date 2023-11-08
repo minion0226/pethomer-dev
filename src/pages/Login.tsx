@@ -11,6 +11,7 @@ import {
 import styled from 'styled-components'
 import { useState } from 'react'
 import { useIonRouter } from '@ionic/react'
+import { useTranslation } from 'react-i18next';
 
 import AppInput from '../components/TextInput'
 
@@ -52,6 +53,8 @@ const Login: React.FC = () => {
   const [email, setEmail] = useState('')
   const [dob, setDob] = useState('')
 
+  const { t, i18n } = useTranslation()
+
   const handleSignup = () => {
     router.push('/register')
   }
@@ -61,36 +64,36 @@ const Login: React.FC = () => {
       <IonContent>
         <IonCol className='flex flex-col justify-center h-full px-3'>
           <IonRow className='my-1'>
-            <SignupBtn className='flex-1' onClick={handleSignup} fill='clear'>Sign Up</SignupBtn>
-            <SigninBtn className='flex-1 active' fill='clear'>Log In</SigninBtn>
+            <SignupBtn className='flex-1' onClick={handleSignup} fill='clear'>{t('base.button.signup')}</SignupBtn>
+            <SigninBtn className='flex-1 active' fill='clear'>{t('base.button.login')}</SigninBtn>
           </IonRow>
-          <AppInput label='Email Address' type='email' value={email} onChange={setEmail} />
-          <AppInput label='Password' type='password' value={dob} onChange={setDob} />
+          <AppInput label={t('base.label.email')} type='email' value={email} onChange={setEmail} />
+          <AppInput label={t('base.label.password')} type='password' value={dob} onChange={setDob} />
           <IonRow className='mb-2'>
             <IonCol class='text-end'>
-              <IonText class='text-sm text-gray-800 active:text-gray-300'>Forgot Password ?</IonText>
+              <IonText class='text-sm text-gray-800 active:text-gray-300'>{t('base.label.forgot')}</IonText>
             </IonCol>
           </IonRow>
           <IonRow className='mb-2'>
             <IonCol className='p-3 text-center rounded-md bg-yellow-400 text-white active:opacity-60'>
-              Log In
+              {t('base.button.login')}
             </IonCol>
           </IonRow>
           <IonRow className='justify-center my-3'>
             <IonImg src={LeftArrow}/>
-            <IonText class='mx-2'>Or</IonText>
+            <IonText class='mx-2'>{t('base.label.or')}</IonText>
             <IonImg src={RightArrow}/>
           </IonRow>
           <IonRow className='mb-4'>
             <IonCol className='p-3 border border-gray-300 rounded-lg active:opacity-60 items-center flex justify-center'>
               <IonImg src={Facebook} className='absolute left-3'/>
-              Login with Facebook
+              {t('base.button.loginfacebook')}
             </IonCol>
           </IonRow>
           <IonRow>
             <IonCol className='p-3 border border-gray-300 rounded-lg active:opacity-60 items-center flex justify-center'>
               <IonImg src={Google} className='absolute left-3' />
-              Login with Google
+              {t('base.button.logingoogle')}
             </IonCol>
           </IonRow>
         </IonCol>

@@ -5,8 +5,23 @@
       "title": "Pet Homer",
       "button": {
         "skip": "skip",
-        "continue": "Continue"
-
+        "continue": "Continue",
+        
+        "signup": "Sign Up",
+        "login": "Log In",
+        "loginfacebook": "Login with Facebook",
+        "logingoogle": "Login wiht Google"
+      },
+      "label": {
+        "email": "Email Address",
+        "firstname": "First Name",
+        "lastname": "Last Name",
+        "dob": "Date of Birth (only for petsitters)",
+        "phone": "Phone Number",
+        "password": "Password",
+        "terms": "by signing up you accept_the terms and conditions",
+        "forgot": "Forgot Password?",
+        "or": "Or"
       }
     },
   
