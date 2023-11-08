@@ -58,7 +58,7 @@ const AppPhoneInput = (props: Props) => {
           className="flex-grow"
           value={localValue}
           onIonChange={handleChange}
-          type={props.type?props.type: 'text'}
+          type={props.type?props.type: 'text' as any}
           placeholder={props.label}
         />
       </IonRow>

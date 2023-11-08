@@ -43,7 +43,7 @@ const AppInput = (props: Props) => {
             className="px-2 w-full border-2 border-gray-200 rounded-md"
             value={localValue}
             onIonChange={handleChange}
-            type={props.type?props.type: 'text'}
+            type={props.type?props.type: 'text' as any}
             placeholder={props.label}
           />
         </IonRow>
