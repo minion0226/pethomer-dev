@@ -4,6 +4,11 @@ import {
 } from '@ionic/react';
 import AppRouter from './router'
 
+import { Provider } from 'react-redux'
+import { I18nextProvider } from 'react-i18next'
+import i18n from './i18n'
+import store from './store'
+
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
 
@@ -24,17 +29,16 @@ import '@ionic/react/css/display.css';
 import './theme/variables.css';
 import './theme/main.css';
 
-import { I18nextProvider } from 'react-i18next'
-import i18n from './i18n'
-
 setupIonicReact();
 
 const App: React.FC = () => (
-  <IonApp>
-    <I18nextProvider i18n={i18n}>
-      <AppRouter />
-    </I18nextProvider>
-  </IonApp>
+  <Provider store={store}>
+    <IonApp>
+      <I18nextProvider i18n={i18n}>
+        <AppRouter />
+      </I18nextProvider>
+    </IonApp>
+  </Provider>
 );
 
 export default App;

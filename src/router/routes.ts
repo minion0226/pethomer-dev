@@ -6,7 +6,7 @@ import Register from '../pages/Register';
 const routes = [
   {
     path: '/',
-    component: Walkthrough,
+    component: Language,
   },
   {
     path: '/login',
@@ -17,8 +17,8 @@ const routes = [
     component: Register,
   },
   {
-    path: '/language',
-    component: Language,
+    path: '/walkthrough',
+    component: Walkthrough,
   },
 ]
 

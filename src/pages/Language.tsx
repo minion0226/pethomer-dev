@@ -6,7 +6,8 @@ import {
 } from '@ionic/react';
 import { useState } from 'react';
 import styled from 'styled-components';
-import { useTranslation, Trans } from 'react-i18next';
+import { useTranslation } from 'react-i18next';
+import { useIonRouter } from '@ionic/react'
 
 const Container = styled(IonCol)`
   background: rgba(204, 204, 204, 0.10);
@@ -37,6 +38,8 @@ const Selection = styled(IonButton)`
 `
 
 const Language: React.FC = () => {
+  const router = useIonRouter()
+
   const [item, setItem] = useState('en')
 
   const { t, i18n } = useTranslation();
@@ -46,13 +49,17 @@ const Language: React.FC = () => {
     setItem(lang)
   }
 
+  const handleContinue = () => {
+    router.push('/walkthrough')
+  }
+
   return (
     <IonPage>
       <Container className='flex flex-col justify-center px-5'>
         <IonText className='text-xl mb-2'>{t('languagePage.Select')}</IonText>
         <Selection className={`w-full ${item === 'en'?'active': ''}`} fill='clear' onClick={() => handleClick('en')}>{t('languagePage.english')}</Selection>
         <Selection className={`w-full ${item === 'pl'?'active': ''}`} fill='clear' onClick={() => handleClick('pl')}>{t('languagePage.polish')}</Selection>
-        <IonButton className='w-full mt-2 bg-yellow-400 text-white rounded-xl' fill='clear'>{t('base.continue')}</IonButton>
+        <IonButton onClick={handleContinue} className='w-full mt-2 bg-yellow-400 text-white rounded-xl' fill='clear'>{t('base.continue')}</IonButton>
       </Container>
     </IonPage>
   );
