@@ -55,6 +55,10 @@ export const routes = [
     component: ChatPage,
   },
   {
+    path: '/review',
+    component: ReviewPage,
+  },
+  {
     path: '/pay',
     component: PaymentPage,
   },
