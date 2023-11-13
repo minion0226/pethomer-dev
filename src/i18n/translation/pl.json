@@ -6,6 +6,12 @@
       "button": {
         "skip": "Pominąć",
         "continue": "Kontynuować",
+        "requests":"Prosi",
+        "sales":"Obroty",
+        "requested": "Wymagany",
+        "rejected": "Odrzucony",
+        "paid": "Płatny",
+        "waiting": "Czekam na recenzję",
         
         "signup": "Zarejestruj się",
         "login": "Zaloguj sie",
@@ -22,7 +28,12 @@
         "password": "Hasło",
         "terms": "rejestrując się, akceptujesz_regulamin",
         "forgot": "Zresetuj hasło?",
-        "or": "Lub"
+        "or": "Lub",
+        "chat": "Czat",
+        "last_transitioned":"Ostatnia zmiana",
+        "status": "Status",
+        "dos": "Data wykonania usługi",
+        "doe": "Data zapytania (domyślna)"
       }
     },
   
@@ -35,6 +46,20 @@
     "walkthrough": {
       "title": "Łączenie_Zwierzęta i opiekunowie,_Zawsze i wszędzie.",
       "body": "lorem ipsum” odkryje wiele witryn internetowych, które są jeszcze w powijakach. Różne wersje ewoluowały przez lata, czasem przez przypadek, czasem celowo"
+    },
+    "notificationPage": {
+      "noitems": "Brak powiadomienia"
+    },
+    "profilePage": {
+      "become": "Zostań opiekunem zwierząt"
+    },
+    "morePage": {
+      "personal_info": "Dane osobiste",
+      "reviews": "Opinie",
+      "payout_details": "Szczegóły wypłaty",
+      "payment_method": "Metody Płatności",
+      "reset_password": "Zresetuj hasło",
+      "logout": "Wyloguj"
     }
   }
 }

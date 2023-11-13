@@ -6,6 +6,12 @@
       "button": {
         "skip": "skip",
         "continue": "Continue",
+        "requests":"Reguests",
+        "sales":"Sales",
+        "requested": "Requested",
+        "rejected": "Rejected",
+        "paid": "Paid",
+        "waiting": "Waiting for a review",
         
         "signup": "Sign Up",
         "login": "Log In",
@@ -21,7 +27,12 @@
         "password": "Password",
         "terms": "by signing up you accept_the terms and conditions",
         "forgot": "Forgot Password?",
-        "or": "Or"
+        "or": "Or",
+        "chat": "Chat",
+        "last_transitioned":"Last Transitioned",
+        "status": "Status",
+        "dos": "Date of the service",
+        "doe": "Date of enquiry(Default)"
       }
     },
   
@@ -34,6 +45,20 @@
     "walkthroughPage": {
       "title": "Connecting_Pets and Sitters,_Anytime, Anywhere.",
       "description": "lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose"
+    },
+    "notificationPage": {
+      "noitems": "No Notification Yet"
+    },
+    "profilePage": {
+      "become": "Become a Pet Sitter"
+    },
+    "morePage": {
+      "personal_info": "Personal Info",
+      "reviews": "Reviews",
+      "payout_details": "Payout Details",
+      "payment_method": "Payment Methods",
+      "reset_password": "Reset Password",
+      "logout": "Log Out"
     }
   }
 }
