@@ -63,8 +63,8 @@ const Home: React.FC = () => {
   }
 
   return (
-    <IonPage className='justify-start py-2'>
-      <IonContent>
+    <IonPage>
+      <IonContent color='light'>
         <IonRow class='flex justify-center'>
           <IonImg src={Logo} />
         </IonRow>
@@ -106,67 +106,67 @@ const Home: React.FC = () => {
             <IonIcon className='absolute block w-6 h-6 top-2 right-2 text-gray-300' icon={ellipseOutline} />
           </IonCol>
         </IonRow>
-        <IonModal 
-          isOpen={sheetOpen} 
-          onDidDismiss={()=>setSheetOpen(false)}
-          initialBreakpoint={0.85}
-          breakpoints={[0, 0.25, 0.5, 0.85]}>
-          <IonContent>
-            <IonRow className='p-3 flex justify-between items-center'>
-              <IonText>Services</IonText>
-              <IonButton size='small' fill='clear' color='dark' onClick={() => setSheetOpen(false)}>
-                <IonIcon className='top-1 right-3' icon={closeOutline}></IonIcon>
-              </IonButton>
-            </IonRow>
-            <IonRow className='mx-3 mb-3 gap-3'>
-              <IonCol className='border border-gray-300 rounded-lg flex gap-2 items-center'>
-                <IonImg className='w-12 h-12 p-1' src={boardingImg} />
-                <IonText>Boarding</IonText>
-              </IonCol>
-              <IonCol className='border border-gray-300 rounded-lg flex gap-2 items-center'>
-                <IonImg className='w-12 h-12 p-1' src={walkingImg} />
-                <IonText>Dog Walking</IonText>
-              </IonCol>
-            </IonRow>
-            <IonRow className='mx-3 mb-3 gap-3'>
-              <IonCol className='border border-gray-300 rounded-lg flex gap-2 items-center'>
-                <IonImg className='w-12 h-12 p-1' src={visitImg} />
-                <IonText>Drop In Visits</IonText>
-              </IonCol>
-              <IonCol className='border border-gray-300 rounded-lg flex gap-2 items-center'>
-                <IonImg className='w-12 h-12 p-1' src={careImg} />
-                <IonText>Dog Day Care</IonText>
-              </IonCol>
-            </IonRow>
-            <IonRow className='relative mx-3 mb-3 gap-3'>
-              <IonLabel>Please Select Location</IonLabel>
-              <Input
-                className="pl-16 w-full border-2 border-gray-200 rounded-md"
-                placeholder='Search Location'>
-                <IonIcon icon={locationOutline} slot='label' />
-              </Input>
-            </IonRow>
-            <IonRow className='mx-3 mb-3 gap-3'>
-              <IonLabel>Pet Weight</IonLabel>
-              <Select class='border-2 border-gray-200 rounded-md px-2' placeholder='Choose Pet Weight' justify='space-between'>
-                <IonSelectOption value='small'>small</IonSelectOption>
-                <IonSelectOption value='medium'>medium</IonSelectOption>
-                <IonSelectOption value='large'>large</IonSelectOption>
-                <IonSelectOption value='giant'>giant</IonSelectOption>
-              </Select>
-            </IonRow>
-            <IonRow className='mx-3 mb-3 gap-3'>
-              <IonLabel>Date</IonLabel>
-              <Input
-                className="pl-16 w-full border-2 border-gray-200 rounded-md"
-                placeholder='Search Location'>
-                <IonIcon icon={locationOutline} slot='label' />
-              </Input>
-            </IonRow>
-            <IonButton onClick={handleSearch} className='block mx-3' color='success'>Search</IonButton>
-          </IonContent>
-        </IonModal>
       </IonContent>
+      <IonModal
+        isOpen={sheetOpen} 
+        onDidDismiss={()=>setSheetOpen(false)}
+        initialBreakpoint={0.85}
+        breakpoints={[0, 0.25, 0.5, 0.85]}>
+        <IonContent>
+          <IonRow className='p-3 flex justify-between items-center'>
+            <IonText>Services</IonText>
+            <IonButton size='small' fill='clear' color='dark' onClick={() => setSheetOpen(false)}>
+              <IonIcon className='top-1 right-3' icon={closeOutline}></IonIcon>
+            </IonButton>
+          </IonRow>
+          <IonRow className='mx-3 mb-3 gap-3'>
+            <IonCol className='border border-gray-300 rounded-lg flex gap-2 items-center'>
+              <IonImg className='w-12 h-12 p-1' src={boardingImg} />
+              <IonText>Boarding</IonText>
+            </IonCol>
+            <IonCol className='border border-gray-300 rounded-lg flex gap-2 items-center'>
+              <IonImg className='w-12 h-12 p-1' src={walkingImg} />
+              <IonText>Dog Walking</IonText>
+            </IonCol>
+          </IonRow>
+          <IonRow className='mx-3 mb-3 gap-3'>
+            <IonCol className='border border-gray-300 rounded-lg flex gap-2 items-center'>
+              <IonImg className='w-12 h-12 p-1' src={visitImg} />
+              <IonText>Drop In Visits</IonText>
+            </IonCol>
+            <IonCol className='border border-gray-300 rounded-lg flex gap-2 items-center'>
+              <IonImg className='w-12 h-12 p-1' src={careImg} />
+              <IonText>Dog Day Care</IonText>
+            </IonCol>
+          </IonRow>
+          <IonRow className='relative mx-3 mb-3 gap-3'>
+            <IonLabel>Please Select Location</IonLabel>
+            <Input
+              className="pl-16 w-full border-2 border-gray-200 rounded-md"
+              placeholder='Search Location'>
+              <IonIcon icon={locationOutline} slot='label' />
+            </Input>
+          </IonRow>
+          <IonRow className='mx-3 mb-3 gap-3'>
+            <IonLabel>Pet Weight</IonLabel>
+            <Select class='border-2 border-gray-200 rounded-md px-2' placeholder='Choose Pet Weight' justify='space-between'>
+              <IonSelectOption value='small'>small</IonSelectOption>
+              <IonSelectOption value='medium'>medium</IonSelectOption>
+              <IonSelectOption value='large'>large</IonSelectOption>
+              <IonSelectOption value='giant'>giant</IonSelectOption>
+            </Select>
+          </IonRow>
+          <IonRow className='mx-3 mb-3 gap-3'>
+            <IonLabel>Date</IonLabel>
+            <Input
+              className="pl-16 w-full border-2 border-gray-200 rounded-md"
+              placeholder='Search Location'>
+              <IonIcon icon={locationOutline} slot='label' />
+            </Input>
+          </IonRow>
+          <IonButton onClick={handleSearch} className='block mx-3' color='success'>Search</IonButton>
+        </IonContent>
+      </IonModal>
     </IonPage>
   )
 }

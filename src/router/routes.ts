@@ -15,10 +15,11 @@ import ChatPage from '../pages/Booking/Chat'
 import PaymentPage from '../pages/Booking/Payment'
 import ReviewPage from '../pages/Booking/Review'
 import PersonalInfoPage from '../pages/More/PersonalInfo'
-import PersonalReviewPage from '../pages/More/PersonalReview';
+import PersonalReviewPage from '../pages/More/PersonalReview'
 import EditInfoPage from '../pages/More/EditoInfo'
 import EditPasswordPage from '../pages/More/EditPassword'
-import EditPaymentPage from '../pages/More/EditPayment';
+import EditPaymentPage from '../pages/More/EditPayment'
+import SitterWizardPage from '../pages/Profile/SitterWizard'
 
 export const routes = [
   {
@@ -81,6 +82,10 @@ export const routes = [
   {
     path: '/view-review',
     component: PersonalReviewPage,
+  },
+  {
+    path: '/sitter-wizard',
+    component: SitterWizardPage,
   },
 ]
 export const tab_routes = [

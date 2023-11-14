@@ -153,7 +153,7 @@ const Chat : React.FC = () => {
             }
           },
           {
-            text: 'OK',
+            text: 'Cancel',
             role: 'cancel'
           }
         ]}        

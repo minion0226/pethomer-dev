@@ -8,19 +8,21 @@ const Review : React.FC = () => {
 
   return (
     <IonPage>
-      <IonHeader className="p-3 flex items-center gap-2">
-        <IonIcon onClick={()=>{ router.goBack() }} icon={chevronBack} />
-        <IonText>Review & Rating</IonText>
+      <IonHeader>
+        <IonRow className="p-3 flex items-center gap-2">
+          <IonIcon onClick={()=>{ router.goBack() }} icon={chevronBack} />
+          <IonText>Review & Rating</IonText>
+        </IonRow>
+        <IonRow className="p-2 flex gap-2 items-center">
+          <IonAvatar>
+            <IonImg src={avatar} />
+          </IonAvatar>
+          <IonCol>
+            <IonText className="block text-lg font-semibold">Jenny Wilson</IonText>
+            <IonText className="text-gray-400">Enquiry - 19 oct 2023</IonText>
+          </IonCol>
+        </IonRow>
       </IonHeader>
-      <IonRow className="p-2 flex gap-2 items-center">
-        <IonAvatar>
-          <IonImg src={avatar} />
-        </IonAvatar>
-        <IonCol>
-          <IonText className="block text-lg font-semibold">Jenny Wilson</IonText>
-          <IonText className="text-gray-400">Enquiry - 19 oct 2023</IonText>
-        </IonCol>
-      </IonRow>
       <IonContent color='light'>
         <IonCol className="flex flex-col h-full">
           <IonRow className="py-3 flex justify-center">

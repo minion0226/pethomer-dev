@@ -14,6 +14,9 @@ import {
   IonCardHeader,
   IonCardContent
 } from "@ionic/react"
+import { chevronBack, chevronForward, closeOutline } from "ionicons/icons"
+import { useState } from "react"
+import styled from "styled-components"
 
 import gallery1 from '../../assets/imgs/gallery/image1.png'
 import gallery2 from '../../assets/imgs/gallery/image2.png'
@@ -22,8 +25,15 @@ import gallery4 from '../../assets/imgs/gallery/image4.png'
 import gallery5 from '../../assets/imgs/gallery/image5.png'
 import gallery6 from '../../assets/imgs/gallery/image6.png'
 import gallery7 from '../../assets/imgs/gallery/image7.png'
-import { chevronBack, closeOutline } from "ionicons/icons"
-import { useState } from "react"
+
+const FilterModal = styled(IonModal)`
+  --ion-background-color: transparent;
+  & .ion-page {
+    display: flex;
+    justify-content: center;
+    
+  }
+`
 
 const Gallery: React.FC = () => {
   const router = useIonRouter()
@@ -64,17 +74,21 @@ const Gallery: React.FC = () => {
           </IonCol>
         </IonRow>
       </IonContent>
-      <IonModal isOpen={open} onDidDismiss={()=>setOpen(false)} className="bg-transparent">
+      <FilterModal isOpen={open} onDidDismiss={()=>setOpen(false)} className="bg-transparent">
+        <IonIcon onClick={()=>setOpen(false)} className="absolute right-6 top-12 text-white z-10" size="large" icon={closeOutline} />
         <IonCard className="flex flex-col justify-center items-center m-0 w-full h-full bg-transparent">
-          <IonIcon onClick={()=>setOpen(false)} className="absolute right-6 top-12" size="large" icon={closeOutline} />
-          <IonCardHeader className="flex justify-start">
-            <IonText className="block">07/02</IonText>
-          </IonCardHeader>
-          <IonCardContent>
-            <IonImg src={selectedOne} />
-          </IonCardContent>
+          <IonRow className="flex flex-row flex-nowrap items-center justify-center">
+            <IonIcon className="text-white" icon={chevronBack} size="large" />
+            <IonCardContent className="px-1 w-8/12">
+              <IonCardHeader className="block w-full pb-1">
+                <IonText className="text-white text-lg"><span className="text-green-400">02</span>/01</IonText>
+              </IonCardHeader>
+              <IonImg className="h-96 object-cover rounded-md overflow-hidden" src={selectedOne} />
+            </IonCardContent>
+            <IonIcon className="text-white" icon={chevronForward} size="large" />
+          </IonRow>
         </IonCard>
-      </IonModal>
+      </FilterModal>
     </IonPage>
   )
 }

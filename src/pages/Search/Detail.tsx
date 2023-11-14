@@ -15,7 +15,8 @@ import {
   useIonRouter,
   IonModal,
   IonInput,
-  IonTextarea
+  IonTextarea,
+  IonHeader
 } from '@ionic/react'
 
 import boardingImg from '../../assets/imgs/icons/boarding.png'
@@ -39,24 +40,26 @@ const Detail : React.FC = () => {
   
   return (
     <IonPage>
-      <IonRow className='relative h-64'>
-        <IonImg src={banner} className='h-60 w-full object-cover' />
-        <IonButton onClick={()=>router.goBack()} size='small' fill='clear' className='absolute top-12 left-4 text-white'>
-          <IonIcon icon={chevronBack} />
-        </IonButton>
-        <IonCol onClick={()=>router.push('/gallery')} className='absolute ion-activatable ripple-parent bottom-6 right-6 rounded-lg bg-lime-500 text-white flex items-center z-20' color='success' size='default'>
-          <IonRippleEffect></IonRippleEffect>
-          <IonIcon size='large' icon={imageOutline} />
-        </IonCol>
-        <IonRow className='absolute -bottom-16 w-full flex justify-center z-10'>
-          <IonAvatar className='w-32 h-32 border-4 border-white'>
-            <IonImg src={banner} />
-          </IonAvatar> 
+      <IonHeader>
+        <IonRow className='relative h-64'>
+          <IonImg src={banner} className='h-60 w-full object-cover' />
+          <IonButton onClick={()=>router.goBack()} size='small' fill='clear' className='absolute top-12 left-4 text-white'>
+            <IonIcon icon={chevronBack} />
+          </IonButton>
+          <IonCol onClick={()=>router.push('/gallery')} className='absolute ion-activatable ripple-parent bottom-6 right-6 rounded-lg bg-lime-500 text-white flex items-center z-20' color='success' size='default'>
+            <IonRippleEffect></IonRippleEffect>
+            <IonIcon size='large' icon={imageOutline} />
+          </IonCol>
+          <IonRow className='absolute -bottom-16 w-full flex justify-center z-10'>
+            <IonAvatar className='w-32 h-32 border-4 border-white'>
+              <IonImg src={banner} />
+            </IonAvatar> 
+          </IonRow>
         </IonRow>
-      </IonRow>
-      <IonRow className='w-full h-24 z-20 text-black flex justify-center items-end'>
-        <IonText className='text-2xl font-semibold'>Alexandra G</IonText>
-      </IonRow>
+        <IonRow className='w-full h-24 z-20 text-black flex justify-center items-end'>
+          <IonText className='text-2xl font-semibold'>Alexandra G</IonText>
+        </IonRow>
+      </IonHeader>
       <IonContent color='light'>
         <IonCard>
           <IonCardTitle className='px-4 pt-3 text-lg'>About Me</IonCardTitle>
@@ -203,8 +206,8 @@ const Detail : React.FC = () => {
         <IonContent color='light'>
           <IonRow className='flex items-center justify-between m-4'>
             <IonText className='text-2xl'>Request to book</IonText>
-            <IonButton size='small' fill='clear' onClick={()=>setOpen(false)}>
-              <IonIcon icon={closeOutline} />
+            <IonButton fill='clear' onClick={()=>setOpen(false)}>
+              <IonIcon className='text-black' icon={closeOutline} />
             </IonButton>
           </IonRow>
           <IonRow className='mx-3 mb-2'>
@@ -226,7 +229,7 @@ const Detail : React.FC = () => {
               <IonRow>
                 <IonText className='block w-full mx-2'>Start Date</IonText>
                 <IonCol className='relative flex items-center px-0'>
-                  <CustomInput className='bg-white rounded-md' readonly placeholder='Select Dog Size' />
+                  <CustomInput className='bg-white rounded-md' readonly placeholder='Select Start Date' />
                   <IonIcon className='absolute text-gray-400 right-3 z-10' icon={calendarOutline} />
                 </IonCol>
               </IonRow>
@@ -235,7 +238,7 @@ const Detail : React.FC = () => {
               <IonRow>
                 <IonText className='block w-full mx-2'>End Date</IonText>
                 <IonCol className='relative flex items-center px-0'>
-                  <CustomInput className='bg-white rounded-md' readonly placeholder='Select Dog Size' />
+                  <CustomInput className='bg-white rounded-md' readonly placeholder='Select End Date' />
                   <IonIcon className='absolute text-gray-400 right-3 z-10' icon={calendarOutline} />
                 </IonCol>
               </IonRow>

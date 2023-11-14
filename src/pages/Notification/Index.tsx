@@ -2,10 +2,7 @@ import {
   IonPage,
   IonContent,
   IonHeader,
-  IonToolbar,
-  IonButton,
   IonIcon,
-  IonTitle,
   IonText,
   IonAvatar,
   IonCol,
@@ -14,7 +11,7 @@ import {
   IonItem
 } from '@ionic/react'
 import { useTranslation } from 'react-i18next';
-import { chevronBackOutline, notifications } from 'ionicons/icons';
+import { notifications } from 'ionicons/icons';
 
 import imgEmpty from '../../assets/imgs/notification_empty.png'
 import { useState } from 'react';
@@ -24,14 +21,9 @@ const Notification: React.FC = () => {
   const [notificaiton, setNotification] = useState([])
   return (
     <IonPage>
-      <IonRow>
-        <IonToolbar color={'default'}>
-          <IonButton fill='clear' slot='start'>
-            <IonIcon icon={chevronBackOutline} />
-          </IonButton>
-          <IonTitle class='ps-16 text-start'>Notification</IonTitle>
-        </IonToolbar>
-      </IonRow>
+      <IonHeader>
+        <IonText class='block p-4 text-lg'>Notification</IonText>
+      </IonHeader>
       <IonContent color='light'>
         {
           notificaiton.length > 0 ? 

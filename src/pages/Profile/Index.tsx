@@ -2,9 +2,7 @@ import {
   IonPage,
   IonContent,
   IonHeader,
-  IonToolbar,
   IonButton,
-  IonTitle,
   IonAvatar,
   IonCol,
   IonCard,
@@ -13,7 +11,8 @@ import {
   IonCardContent,
   IonRow,
   IonText,
-  IonIcon
+  IonIcon,
+  useIonRouter
 } from '@ionic/react'
 import { useTranslation } from 'react-i18next';
 
@@ -23,21 +22,22 @@ import { useState } from 'react';
 import { star } from 'ionicons/icons';
 
 const Profile: React.FC = () => {
+  const router = useIonRouter()
   const { t, i18n } = useTranslation()
   const [list, setList] = useState([])
   return (
     <IonPage>
-      <IonHeader className='px-8 pt-8 text-start'>
-        <IonText className='text-lg'>My Listing</IonText>
+      <IonHeader>
+        <IonText className='block p-4 text-lg'>My Listing</IonText>
       </IonHeader>
-      <IonContent>
+      <IonContent color='light'>
         {
-          list.length > 0 ?
+          list.length === 0 ?
           <IonCol className='flex flex-col bg-gray-100 items-center justify-center h-full'>
             <IonAvatar class='w-fit h-fit'>
               <img src={imgEmpty} />
             </IonAvatar>
-            <IonButton color='success'>{t('profilePage.become')}</IonButton>
+            <IonButton onClick={() => router.push('/sitter-wizard')} color='success'>{t('profilePage.become')}</IonButton>
           </IonCol>
           :
           <IonCol>
