@@ -72,7 +72,7 @@ const Register: React.FC = () => {
           <AppInput label={t('base.label.email')} type='email' value={email} onChange={setEmail} />
           <AppInput label={t('base.label.firstname')} value={first} onChange={setFirst} />
           <AppInput label={t('base.label.lastname')} value={last} onChange={setLast} />
-          <AppInput label={t('base.label.dob')} value={dob} onChange={setDob} />
+          <AppInput label={t('base.label.dob_pet')} value={dob} onChange={setDob} />
           <AppPhoneInput label={t('base.label.phone')} value={dob} onChange={setDob} />
           <AppInput label={t('base.label.password')} type='password' value={dob} onChange={setDob} />
           <IonRow className='mb-2'>

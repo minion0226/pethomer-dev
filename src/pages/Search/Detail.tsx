@@ -29,12 +29,14 @@ import avatar01 from '../../assets/imgs/icons/avatar01.png'
 import { calendarOutline, checkmarkCircleOutline, chevronBack, chevronDownOutline, closeOutline, imageOutline, star } from 'ionicons/icons';
 import { useState } from 'react'
 import styled from 'styled-components'
+import { useTranslation } from 'react-i18next'
 
 const CustomInput = styled(IonInput)`
   --padding-start: 10px;
 `
 
 const Detail : React.FC = () => {
+  const { t, i18n } = useTranslation()
   const router = useIonRouter()
   const [open, setOpen] = useState(false)
   
@@ -62,47 +64,61 @@ const Detail : React.FC = () => {
       </IonHeader>
       <IonContent color='light'>
         <IonCard>
-          <IonCardTitle className='px-4 pt-3 text-lg'>About Me</IonCardTitle>
+          <IonCardTitle className='px-4 pt-3 text-lg'>{t('base.label.about_me')}</IonCardTitle>
           <IonCardContent className='pt-2'>
             Cześć​,​ Jestem Ola​,​ a psy są moją pasją. Interesuję się psią psychologią i rozumiem psy​,​ dzięki czemu potrafię trafnie odpowiadać na ich potrzeby. Wiem​,​ że oddanie swojego zwierzaka pod opiekę w obce ręce to duże wyzwanie. Ja i Bantey (mój cavalier) zapewnimy komfort​,​ spokój i przestrzeń każdemu pieskowi lub innemu ulubieńcowi​,​ który się u nas pojawi.
           </IonCardContent>
         </IonCard>
 
         <IonCard>
-          <IonCardTitle className='px-4 pt-3 text-lg'>My Experience</IonCardTitle>
+          <IonCardTitle className='px-4 pt-3 text-lg'>{t('base.label.my_experience')}</IonCardTitle>
           <IonCardContent className='pt-2'>
             Cześć​,​ Jestem Ola​,​ a psy są moją pasją. Interesuję się psią psychologią i rozumiem psy​,​ dzięki czemu potrafię trafnie odpowiadać na ich potrzeby. Wiem​,​ że oddanie swojego zwierzaka pod opiekę w obce ręce to duże wyzwanie. Ja i Bantey (mój cavalier) zapewnimy komfort​,​ spokój i przestrzeń każdemu pieskowi lub innemu ulubieńcowi​,​ który się u nas pojawi.
           </IonCardContent>
         </IonCard>
 
         <IonCard>
-          <IonCardTitle className='px-4 pt-3 text-lg'>Services</IonCardTitle>
+          <IonCardTitle className='px-4 pt-3 text-lg'>{t('base.label.services')}</IonCardTitle>
           <IonCardContent className='pt-2'>
             <IonRow>
               <IonCol className='flex flex-row gap-2 items-center'>
                 <IonImg className='w-8 h-8' src={boardingImg} />
-                <IonText>Boarding</IonText>
+                <IonText>{t('homePage.boarding')}</IonText>
               </IonCol>
               <IonCol className='flex flex-row gap-2 items-center'>
                 <IonImg className='w-8 h-8' src={walkingImg} />
-                <IonText>Dog Walking</IonText>
+                <IonText>{t('homePage.dogwalking')}</IonText>
               </IonCol>
             </IonRow>
             <IonRow>
               <IonCol className='flex flex-row gap-2 items-center'>
                 <IonImg className='w-8 h-8' src={visitImg} />
-                <IonText>Dog In Visits</IonText>
+                <IonText>{t('homePage.dropinvisits')}</IonText>
               </IonCol>
               <IonCol className='flex flex-row gap-2 items-center'>
                 <IonImg className='w-8 h-8' src={careImg} />
-                <IonText>Dog Day Care</IonText>
+                <IonText>{t('homePage.dogdaycare')}</IonText>
               </IonCol>
             </IonRow>
           </IonCardContent>
         </IonCard>
 
         <IonCard>
-          <IonCardTitle className='px-4 pt-3 text-lg'>Pet Size preference</IonCardTitle>
+          <IonCardTitle className='px-4 pt-3 text-lg'>{t('base.label.pet_size')}</IonCardTitle>
+          <IonCardContent>
+            <IonCol className='flex flex-row items-center gap-2'>
+              <IonIcon color='success' icon={checkmarkCircleOutline}/>
+              <IonText>{t('base.label.weight_small')}</IonText>
+            </IonCol>
+            <IonCol className='flex flex-row items-center gap-2'>
+              <IonIcon color='success' icon={checkmarkCircleOutline}/>
+              <IonText>{t('base.label.weight_giant')}</IonText>
+            </IonCol>
+          </IonCardContent>
+        </IonCard>
+        
+        <IonCard>
+          <IonCardTitle className='px-4 pt-3 text-lg'>{t('base.label.benefits')}</IonCardTitle>
           <IonCardContent>
             <IonCol className='flex flex-row items-center gap-2'>
               <IonIcon color='success' icon={checkmarkCircleOutline}/>
@@ -116,21 +132,7 @@ const Detail : React.FC = () => {
         </IonCard>
         
         <IonCard>
-          <IonCardTitle className='px-4 pt-3 text-lg'>Benefits</IonCardTitle>
-          <IonCardContent>
-            <IonCol className='flex flex-row items-center gap-2'>
-              <IonIcon color='success' icon={checkmarkCircleOutline}/>
-              <IonText>Small: up to 7 kg</IonText>
-            </IonCol>
-            <IonCol className='flex flex-row items-center gap-2'>
-              <IonIcon color='success' icon={checkmarkCircleOutline}/>
-              <IonText>Giant: over 35 kg</IonText>
-            </IonCol>
-          </IonCardContent>
-        </IonCard>
-        
-        <IonCard>
-          <IonCardTitle className='px-4 pt-3 text-lg'>Skills</IonCardTitle>
+          <IonCardTitle className='px-4 pt-3 text-lg'>{t('base.label.skills')}</IonCardTitle>
           <IonCardContent>
             <IonCol className='flex flex-row items-center gap-2'>
               <IonIcon color='success' icon={checkmarkCircleOutline}/>
@@ -143,7 +145,7 @@ const Detail : React.FC = () => {
           </IonCardContent>
         </IonCard>
 
-        <IonText className='px-4'>Location</IonText>
+        <IonText className='px-4'>{t('base.label.location')}</IonText>
         <IonCard>
           <IonCardContent>
             Here goes google Map view.
@@ -153,7 +155,7 @@ const Detail : React.FC = () => {
           </IonCardContent>
         </IonCard>
 
-        <IonText className='px-4'>Reviews (1)</IonText>
+        <IonText className='px-4'>{t('base.label.review')} (1)</IonText>
         <IonRow className='overflow-x-scroll flex-nowrap mx-4'>
           <IonCard className='w-4/5 flex-shrink-0'>
             <IonRow className='p-4'>
@@ -196,7 +198,7 @@ const Detail : React.FC = () => {
 
       </IonContent>
       <IonRow>
-        <IonButton onClick={()=>setOpen(true)} className='block w-full p-2' color='success'>Request Book</IonButton>
+        <IonButton onClick={()=>setOpen(true)} className='block w-full p-2' color='success'>{t('base.button.request_book')}</IonButton>
       </IonRow>
       <IonModal
         isOpen={open}
@@ -205,51 +207,51 @@ const Detail : React.FC = () => {
         >
         <IonContent color='light'>
           <IonRow className='flex items-center justify-between m-4'>
-            <IonText className='text-2xl'>Request to book</IonText>
+            <IonText className='text-2xl'>{t('base.button.request_book')}</IonText>
             <IonButton fill='clear' onClick={()=>setOpen(false)}>
               <IonIcon className='text-black' icon={closeOutline} />
             </IonButton>
           </IonRow>
           <IonRow className='mx-3 mb-2'>
-            <IonText className='block w-full mx-2'>What service do you need?</IonText>
+            <IonText className='block w-full mx-2'>{t('base.label.service_what')}</IonText>
             <IonCol className='relative flex items-center'>
-              <CustomInput className='bg-white rounded-md' readonly placeholder='Select Service' />
+              <CustomInput className='bg-white rounded-md' readonly placeholder={t('base.placeholder.service')} />
               <IonIcon className='absolute text-gray-400 right-4 z-10' icon={chevronDownOutline} />
             </IonCol>
           </IonRow>
           <IonRow className='mx-3 mb-2'>
-            <IonText className='block w-full mx-2'>What size is your dog?</IonText>
+            <IonText className='block w-full mx-2'>{t('base.label.size_what')}</IonText>
             <IonCol className='relative flex items-center'>
-              <CustomInput className='bg-white rounded-md' readonly placeholder='Select Dog Size' />
+              <CustomInput className='bg-white rounded-md' readonly placeholder={t('base.placeholder.pet_weight')} />
               <IonIcon className='absolute text-gray-400 right-4 z-10' icon={chevronDownOutline} />
             </IonCol>
           </IonRow>
           <IonRow className='mx-3 mb-2'>
             <IonCol>
               <IonRow>
-                <IonText className='block w-full mx-2'>Start Date</IonText>
+                <IonText className='block w-full mx-2'>{t('base.label.start_date')}</IonText>
                 <IonCol className='relative flex items-center px-0'>
-                  <CustomInput className='bg-white rounded-md' readonly placeholder='Select Start Date' />
+                  <CustomInput className='bg-white rounded-md' readonly placeholder={t('base.placeholder.start_date')} />
                   <IonIcon className='absolute text-gray-400 right-3 z-10' icon={calendarOutline} />
                 </IonCol>
               </IonRow>
             </IonCol>
             <IonCol>
               <IonRow>
-                <IonText className='block w-full mx-2'>End Date</IonText>
+                <IonText className='block w-full mx-2'>{t('base.label.end_date')}</IonText>
                 <IonCol className='relative flex items-center px-0'>
-                  <CustomInput className='bg-white rounded-md' readonly placeholder='Select End Date' />
+                  <CustomInput className='bg-white rounded-md' readonly placeholder={t('base.placeholder.end_date')} />
                   <IonIcon className='absolute text-gray-400 right-3 z-10' icon={calendarOutline} />
                 </IonCol>
               </IonRow>
             </IonCol>
           </IonRow>
           <IonRow className='mx-3 mb-2'>
-            <IonText className='block w-full mx-2'>Message</IonText>
-            <IonTextarea className='bg-white mx-2 rounded-md p-2' rows={4} placeholder='write here...'></IonTextarea>
+            <IonText className='block w-full mx-2'>{t('base.label.message')}</IonText>
+            <IonTextarea className='bg-white mx-2 rounded-md p-2' rows={4} placeholder={t('base.placeholder.write_here')}></IonTextarea>
           </IonRow>
           <IonRow className='mx-3 px-2'>
-            <IonButton color='success block w-full'>Request to book</IonButton>
+            <IonButton color='success block w-full'>{t('base.button.request_book')}</IonButton>
           </IonRow>
         </IonContent>
       </IonModal>

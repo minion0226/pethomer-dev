@@ -45,28 +45,28 @@ const AppRouter: React.FC = () => {
               <IonTabButton className='ion-activatable ripple-parent rounded-md relative' tab='explorer' href='/tab/home'>
                 <IonRippleEffect></IonRippleEffect>
                 <IonIcon className='text-2xl' icon={homeOutline} />
-                <IonLabel>Explorer</IonLabel>
+                <IonLabel>{t('base.label.explorer')}</IonLabel>
               </IonTabButton>
               <IonTabButton className='ion-activatable ripple-parent rounded-md relative' tab='booking' href='/tab/booking'>
                 <IonRippleEffect></IonRippleEffect>
                 <IonIcon className='text-2xl' icon={calendarOutline} />
-                <IonLabel>Booking</IonLabel>
+                <IonLabel>{t('base.label.booking')}</IonLabel>
               </IonTabButton>
               <IonTabButton className='ion-activatable ripple-parent rounded-md relative' tab='notification' href='/tab/notification'>
                 <IonRippleEffect></IonRippleEffect>
                 <IonIcon className='text-2xl' icon={notificationsOutline} />
-                <IonLabel>Notification</IonLabel>
+                <IonLabel>{t('base.label.notification')}</IonLabel>
                 <Dot className='rounded-full' />
               </IonTabButton>
               <IonTabButton className='ion-activatable ripple-parent rounded-md relative' tab='profile' href='/tab/profile'>
                 <IonRippleEffect></IonRippleEffect>
                 <IonIcon className='text-2xl' icon={personOutline} />
-                <IonLabel>Profile</IonLabel>
+                <IonLabel>{t('base.label.profile')}</IonLabel>
               </IonTabButton>
               <IonTabButton className='ion-activatable ripple-parent rounded-md relative' tab='more' href='/tab/more'>
                 <IonRippleEffect></IonRippleEffect>
                 <IonIcon className='text-2xl' icon={ellipsisHorizontalOutline} />
-                <IonLabel>More</IonLabel>
+                <IonLabel>{t('base.label.more')}</IonLabel>
               </IonTabButton>
             </IonTabBar>
           </IonTabs>

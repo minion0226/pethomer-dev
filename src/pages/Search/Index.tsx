@@ -20,6 +20,7 @@ import defaultBack from '../../assets/imgs/back1.png'
 import defaultAvatar from '../../assets/imgs/avatar.png'
 import { useState } from 'react'
 import styled from 'styled-components'
+import { useTranslation } from 'react-i18next'
 
 const CustomInput = styled(IonInput)`
   --padding-start: 10px;
@@ -27,6 +28,7 @@ const CustomInput = styled(IonInput)`
 
 const Search: React.FC = () => {
   const router =  useIonRouter()
+  const { t, i18n } = useTranslation()
   const [open, setOpen] = useState(false)
 
   const handleViewDetail = () => {
@@ -40,15 +42,15 @@ const Search: React.FC = () => {
           <IonButton onClick={()=>router.goBack()} fill='clear'>
             <IonIcon icon={chevronBack} />
           </IonButton>
-          <IonText>Search Results</IonText>
+          <IonText>{t('base.label.search_result')}</IonText>
           <IonButton onClick={() => setOpen(true)} className='rounded-full' fill='clear'>
             <IonIcon icon={funnelOutline} />
           </IonButton>
         </IonRow>
         <IonRow className='mx-3 justify-between items-center'>
-          <IonText>100 results</IonText>
+          <IonText>100 {t('base.label.result')}</IonText>
           <IonRow className='flex flex-row flex-nowrap items-center'>
-            <IonText className='whitespace-nowrap'>Sort by:</IonText>
+            <IonText className='whitespace-nowrap'>{t('base.label.sort_by')}</IonText>
             <IonButton fill='clear' className='px-0' size='small' color='medium'>
               <IonIcon icon={chevronDownOutline} />
             </IonButton>
@@ -134,63 +136,63 @@ const Search: React.FC = () => {
         >
         <IonContent color='light'>
           <IonRow className='flex items-center justify-between m-4'>
-            <IonText className='text-2xl'>Filter</IonText>
+            <IonText className='text-2xl'>{t('base.label.filter')}</IonText>
             <IonButton fill='clear' onClick={()=>setOpen(false)}>
               <IonIcon className='text-black' icon={closeOutline} />
             </IonButton>
           </IonRow>
           <IonRow className='mx-3 mb-2'>
-            <IonText className='block w-full mx-2'>Services</IonText>
+            <IonText className='block w-full mx-2'>{t('base.label.services')}</IonText>
             <IonCol className='relative flex items-center'>
-              <CustomInput className='bg-white rounded-md' readonly placeholder='Select Service type' />
+              <CustomInput className='bg-white rounded-md' readonly placeholder={t('base.placeholder.service')} />
               <IonIcon className='absolute text-gray-400 right-4 z-10' icon={chevronDownOutline} />
             </IonCol>
           </IonRow>
           <IonRow className='mx-3 mb-2'>
-            <IonText className='block w-full mx-2'>Key word</IonText>
+            <IonText className='block w-full mx-2'>{t('base.label.keyword')}</IonText>
             <IonCol className='relative flex items-center'>
-              <CustomInput className='bg-white rounded-md' placeholder='Enter Key word' />
+              <CustomInput className='bg-white rounded-md' placeholder={t('base.placeholder.keyword')} />
             </IonCol>
           </IonRow>
           <IonRow className='mx-3 mb-2'>
-            <IonText className='block w-full mx-2'>Date</IonText>
+            <IonText className='block w-full mx-2'>{t('base.label.date')}</IonText>
             <IonCol className='relative flex items-center'>
-              <CustomInput className='bg-white rounded-md' readonly placeholder='DD/MM/YYYY' />
+              <CustomInput className='bg-white rounded-md' readonly placeholder={t('base.placeholder.date')} />
               <IonIcon className='absolute text-gray-400 right-4 z-10' icon={calendarOutline} />
             </IonCol>
           </IonRow>
           <IonRow className='mx-3 mb-2'>
-            <IonText className='block w-full mx-2'>Time Slot</IonText>
+            <IonText className='block w-full mx-2'>{t('base.label.time_slot')}</IonText>
             <IonCol className='relative flex items-center'>
-              <CustomInput className='bg-white rounded-md' readonly placeholder='Select Time Slot' />
+              <CustomInput className='bg-white rounded-md' readonly placeholder={t('base.placeholder.time_slot')} />
               <IonIcon className='absolute text-gray-400 right-4 z-10' icon={chevronDownOutline} />
             </IonCol>
           </IonRow>
           <IonRow className='mx-3 mb-2'>
-            <IonText className='block w-full mx-2'>Pet Weight</IonText>
+            <IonText className='block w-full mx-2'>{t('base.label.pet_weight')}</IonText>
             <IonCol className='relative flex items-center'>
-              <CustomInput className='bg-white rounded-md' readonly placeholder='Select Pet Weight' />
+              <CustomInput className='bg-white rounded-md' readonly placeholder={t('base.placeholder.pet_weight')} />
               <IonIcon className='absolute text-gray-400 right-4 z-10' icon={chevronDownOutline} />
             </IonCol>
           </IonRow>
           <IonRow className='mx-3 mb-2'>
-            <IonText className='block w-full mx-2'>Sitter House</IonText>
+            <IonText className='block w-full mx-2'>{t('base.label.sitter_house')}</IonText>
             <IonCol className='relative flex items-center'>
-              <CustomInput className='bg-white rounded-md' readonly placeholder='Choose sitter house' />
+              <CustomInput className='bg-white rounded-md' readonly placeholder={t('base.placeholder.sitter_house')} />
               <IonIcon className='absolute text-gray-400 right-4 z-10' icon={chevronDownOutline} />
             </IonCol>
           </IonRow>
           <IonRow className='mx-3 mb-2'>
-            <IonText className='block w-full mx-2'>Skills</IonText>
+            <IonText className='block w-full mx-2'>{t('base.label.skills')}</IonText>
             <IonCol className='relative flex items-center'>
-              <CustomInput className='bg-white rounded-md' readonly placeholder='Select skills' />
+              <CustomInput className='bg-white rounded-md' readonly placeholder={t('base.placeholder.skills')} />
               <IonIcon className='absolute text-gray-400 right-4 z-10' icon={chevronDownOutline} />
             </IonCol>
           </IonRow>
           
           <IonRow className='mx-3 px-2 flex flex-row flex-nowrap'>
-            <IonButton color='success block w-full' fill='outline'>Reset</IonButton>
-            <IonButton color='success block w-full'>Apply</IonButton>
+            <IonButton color='success block w-full' fill='outline'>{t('base.button.reset')}</IonButton>
+            <IonButton color='success block w-full'>{t('base.button.apply')}</IonButton>
           </IonRow>
         </IonContent>
       </IonModal>

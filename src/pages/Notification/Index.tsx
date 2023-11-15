@@ -22,7 +22,7 @@ const Notification: React.FC = () => {
   return (
     <IonPage>
       <IonHeader>
-        <IonText class='block p-4 text-lg'>Notification</IonText>
+        <IonText class='block p-4 text-lg'>{t('base.label.notification')}</IonText>
       </IonHeader>
       <IonContent color='light'>
         {

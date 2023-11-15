@@ -20,6 +20,7 @@ import styled from 'styled-components'
 import { chevronBack, chevronDown, chevronForward, chevronUp, paperPlaneOutline, star } from "ionicons/icons"
 import avatar from '../../assets/imgs/avatar.png'
 import { useState } from "react"
+import { useTranslation } from "react-i18next"
 
 const CustomInput = styled(IonTextarea)`
   --padding-start: 10px;
@@ -30,6 +31,7 @@ const SendButton = styled(IonButton)`
 `
 const Chat : React.FC = () => {
   const router = useIonRouter()
+  const { t, i18n } = useTranslation()
   const [detailView, setDetailView] = useState(false)
   const [stage, setStage] = useState(0)
   const handleChangeStage = () => {
@@ -50,21 +52,21 @@ const Chat : React.FC = () => {
             </IonAvatar>
             <IonText>Alexandara G.</IonText>
           </IonCol>
-          <IonCol className="flex justify-end">
-            <IonButton onClick={()=>setDetailView(!detailView)} color='success' fill="outline" size="small">
-              View Details 
+          <IonCol className="flex justify-end items-center">
+            <IonButton onClick={()=>setDetailView(!detailView)} color='success' fill="outline">
+              {t('profilePage.view_details')}
               <IonIcon icon={detailView?chevronUp:chevronDown} />
             </IonButton>
           </IonCol>
         </IonRow>
         <IonRow className="flex flex-row items-center gap-2 p-2">
-          <IonText className={stage >= 1?'text-yellow-500': ''}>Requested</IonText>
+          <IonText className={stage >= 1?'text-yellow-500': ''}>{t('base.button.requested')}</IonText>
           <IonIcon className={stage >= 1?'text-yellow-500': ''} icon={chevronForward} />
-          <IonText className={stage >= 2?'text-yellow-500': ''}>Accepted</IonText>
+          <IonText className={stage >= 2?'text-yellow-500': ''}>{t('base.button.accepted')}</IonText>
           <IonIcon className={stage >= 3?'text-yellow-500': ''} icon={chevronForward} />
-          <IonText className={stage >= 3?'text-yellow-500': ''}>Paid</IonText>
+          <IonText className={stage >= 3?'text-yellow-500': ''}>{t('base.button.paid')}</IonText>
           <IonIcon className={stage >= 3?'text-yellow-500': ''} icon={chevronForward} />
-          <IonText className={stage >= 4?'text-yellow-500': ''}>Reviewed</IonText>
+          <IonText className={stage >= 4?'text-yellow-500': ''}>{t('base.button.reviewed')}</IonText>
         </IonRow>
       </IonHeader>
       <IonContent color='light relative'>
@@ -90,40 +92,40 @@ const Chat : React.FC = () => {
               </div>
               <IonCol className="flex justify-end">
                 <IonButton color='success' fill="outline" size="small">
-                  View Profile 
+                  {t('base.button.view_profile')}
                 </IonButton>
               </IonCol>
             </IonRow>
             <IonRow className="border-b-2">
               <IonCol>
-                <IonText className="block">Booking Start</IonText>
+                <IonText className="block">{t('base.label.booking_start')}</IonText>
                 <IonText className="block text-lg font-bold">Mon 19 oct 2023</IonText>
               </IonCol>
               <IonCol>
-                <IonText className="block">Booking End</IonText>
+                <IonText className="block">{t('base.label.booking_end')}</IonText>
                 <IonText className="block text-lg font-bold">Wed 22 oct 2023</IonText>
               </IonCol>
             </IonRow>
             <IonRow className="border-b-2">
               <IonCol>
-                <IonText className="block">Services</IonText>
+                <IonText className="block">{t('base.label.services')}</IonText>
                 <IonText className="block text-lg font-bold">Boarding</IonText>
               </IonCol>
               <IonCol>
-                <IonText className="block">Pet Size</IonText>
+                <IonText className="block">{('base.label.pet_size')}</IonText>
                 <IonText className="block text-lg font-bold">Medium: 8-18 kg</IonText>
               </IonCol>
             </IonRow>
             <IonRow>
               <IonCol>
-                <IonText className="block">Total Price</IonText>
+                <IonText className="block">{t('base.label.total_price')}</IonText>
                 <IonText className="block text-lg font-bold">PLN 15.00</IonText>
               </IonCol>
             </IonRow>
           </IonCard>
         }
         <IonRow className="absolute w-full bottom-2 flex items-end">
-          <CustomInput className="border-2 border-gray-200 bg-white mx-2 rounded-md p-2 relative flex items-center" placeholder="Write here...">
+          <CustomInput className="border-2 border-gray-200 bg-white mx-2 rounded-md p-2 relative flex items-center" placeholder={t('base.placeholder.write_here')}>
           </CustomInput>
           <SendButton className="absolute right-3 block z-40" size="small" >
             <IonIcon icon={paperPlaneOutline} />
@@ -134,7 +136,7 @@ const Chat : React.FC = () => {
         stage > 0 ?
         <IonFooter>
           <IonButton onClick={handleChangeStage} className="block w-full p-2" color='success'>
-            {stage === 1 ?'Edit':stage === 2 ? 'Write Review': 'Pay'}
+            { stage === 1 ? t('base.button.edit'):stage === 2 ? t('base.button.write_review') : t('base.button.pay') }
           </IonButton>
         </IonFooter>
         :

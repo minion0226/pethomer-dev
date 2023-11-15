@@ -28,7 +28,7 @@ const Profile: React.FC = () => {
   return (
     <IonPage>
       <IonHeader>
-        <IonText className='block p-4 text-lg'>My Listing</IonText>
+        <IonText className='block p-4 text-lg'>{t('base.label.my_listing')}</IonText>
       </IonHeader>
       <IonContent color='light'>
         {
@@ -57,19 +57,19 @@ const Profile: React.FC = () => {
                     </IonRow>
                   </IonCol>
                   <IonRow className='flex items-center'>
-                    <IonButton color='success' fill='outline' size='small'>Manage Listing</IonButton>
-                    <IonButton color='success' fill='outline' size='small'>Edit Calendar</IonButton>
+                    <IonButton color='success' fill='outline' size='small'>{t('profilePage.manage_listing')}</IonButton>
+                    <IonButton color='success' fill='outline' size='small'>{t('profilePage.edit_calendar')}</IonButton>
                   </IonRow>
                 </IonRow>
               </IonCardHeader>
               <IonCardContent>
-                <IonText>Services</IonText>
+                <IonText>{t('base.label.services')}</IonText>
                 <IonRow className='flex justify-between'>
                   <IonRow className='flex'>
-                    <IonButton color='dark' fill='outline' size='small'>Boarding</IonButton>
-                    <IonButton color='dark' fill='outline' size='small'>Dog day care</IonButton>
+                    <IonButton color='dark' fill='outline' size='small'>{t('homePage.boarding')}</IonButton>
+                    <IonButton color='dark' fill='outline' size='small'>{t('homePage.dogdaycare')}</IonButton>
                   </IonRow>
-                  <IonButton className='underline' color='dark' fill='clear' size='small'>View Details</IonButton>
+                  <IonButton className='underline' color='dark' fill='clear' size='small'>{t('profilePage.view_details')}</IonButton>
                 </IonRow>
               </IonCardContent>
             </IonCard>

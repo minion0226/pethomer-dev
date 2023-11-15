@@ -25,9 +25,11 @@ const titles = [
 ]
 
 import stripe from '../../assets/imgs/stripe.png'
+import { useTranslation } from "react-i18next"
 
 const SitterWizard : React.FC = () => {
   const router = useIonRouter()
+  const { t } = useTranslation()
   const [step, setStep] = useState(0)
   const [acctype, setAcctype] = useState(false)
   const [desc, setDesc] = useState(true)
@@ -51,102 +53,102 @@ const SitterWizard : React.FC = () => {
         <IonRow className="h-full">
           {
             step === 0 && <IonCol className="p-4">
-              <IonText className="text-2xl font-semibold text-green-500 mb-4 block w-full">Fill in this simple form :-) </IonText>
+              <IonText className="text-2xl font-semibold text-green-500 mb-4 block w-full">{t('sitterWizard.question_description')} </IonText>
               <IonRow className="mb-4">
-                <IonText>Tell your clients more about you</IonText>
-                <IonTextarea className="border-2 rounded-md px-3" placeholder="write here..." rows={5} />
+                <IonText>{t('sitterWizard.tell_more')}</IonText>
+                <IonTextarea className="border-2 rounded-md px-3" placeholder={t('base.placeholder.write_here')} rows={5} />
               </IonRow>
               <IonRow>
-                <IonText>My experience with pets</IonText>
-                <IonTextarea className="border-2 rounded-md px-3" placeholder="write here..." rows={5} />
+                <IonText>{t('sitterWizard.with_pets')}</IonText>
+                <IonTextarea className="border-2 rounded-md px-3" placeholder={t('base.placeholder.write_here')} rows={5} />
               </IonRow>
             </IonCol>
           }
           {
             step === 1 && <IonCol className="p-4">
-              <IonText className="text-2xl font-semibold text-green-500 mb-4 block w-full">What services do you provide? </IonText>
+              <IonText className="text-2xl font-semibold text-green-500 mb-4 block w-full">{t('sitterWizard.question_services')}</IonText>
               <IonRow className="bg-gray-200 rounded-md p-4 flex flex-col gap-3">
-                <IonCheckbox value={'boarding'} labelPlacement="end" justify="start">boarding</IonCheckbox>
-                <IonCheckbox value={'dogwalking'} labelPlacement="end" justify="start">dogwalking</IonCheckbox>
-                <IonCheckbox value={'dropinvisit'} labelPlacement="end" justify="start">dropinvisit</IonCheckbox>
-                <IonCheckbox value={'dogdaycare'} labelPlacement="end" justify="start">dogdaycare</IonCheckbox>
+                <IonCheckbox value={'boarding'} labelPlacement="end" justify="start">{t('homePage.boarding')}</IonCheckbox>
+                <IonCheckbox value={'dogwalking'} labelPlacement="end" justify="start">{t('homePage.dogwalking')}</IonCheckbox>
+                <IonCheckbox value={'dropinvisit'} labelPlacement="end" justify="start">{t('homePage.dropinvisits')}</IonCheckbox>
+                <IonCheckbox value={'dogdaycare'} labelPlacement="end" justify="start">{t('homePage.dogdaycare')}</IonCheckbox>
               </IonRow>
             </IonCol>
           }
           {
             step === 2 && <IonCol className="p-4">
-              <IonText className="text-2xl font-semibold text-green-500 mb-4 block w-full">Sizes of pets you want to take care</IonText>
+              <IonText className="text-2xl font-semibold text-green-500 mb-4 block w-full">{t('sitterWizard.question_preference')}</IonText>
               <IonRow className="bg-gray-200 rounded-md p-4 flex flex-col gap-3">
-                <IonCheckbox value={'small'} labelPlacement="end" justify="start">small</IonCheckbox>
-                <IonCheckbox value={'medium'} labelPlacement="end" justify="start">medium</IonCheckbox>
-                <IonCheckbox value={'large'} labelPlacement="end" justify="start">large</IonCheckbox>
-                <IonCheckbox value={'giant'} labelPlacement="end" justify="start">giant</IonCheckbox>
+                <IonCheckbox value={'small'} labelPlacement="end" justify="start">{t('base.label.weight_small')}</IonCheckbox>
+                <IonCheckbox value={'medium'} labelPlacement="end" justify="start">{t('base.label.weight_medium')}</IonCheckbox>
+                <IonCheckbox value={'large'} labelPlacement="end" justify="start">{t('base.label.weight_large')}</IonCheckbox>
+                <IonCheckbox value={'giant'} labelPlacement="end" justify="start">{t('base.label.weight_giant')}</IonCheckbox>
               </IonRow>
             </IonCol>
           }
           {
             step === 3 && <IonCol className="p-4">
-              <IonText className="text-2xl font-semibold text-green-500 mb-4 block w-full">Tell Us more about your place, where you'll be caring of your clients pets.</IonText>
+              <IonText className="text-2xl font-semibold text-green-500 mb-4 block w-full">{t('sitterWizard.question_sitter')}</IonText>
               <IonRow className="bg-gray-200 rounded-md p-4 flex flex-col gap-3">
-                <IonCheckbox value={'smoking'} labelPlacement="end" justify="start">Smoking free home</IonCheckbox>
-                <IonCheckbox value={'single'} labelPlacement="end" justify="start">Single-family house</IonCheckbox>
-                <IonCheckbox value={'garden'} labelPlacement="end" justify="start">Garden</IonCheckbox>
-                <IonCheckbox value={'nochildren'} labelPlacement="end" justify="start">No children at home</IonCheckbox>
-                <IonCheckbox value={'notherpets'} labelPlacement="end" justify="start">No other pets at home</IonCheckbox>
-                <IonCheckbox value={'nocats'} labelPlacement="end" justify="start">No cats at home</IonCheckbox>
-                <IonCheckbox value={'owndog'} labelPlacement="end" justify="start">The sitter has his own dog</IonCheckbox>
-                <IonCheckbox value={'couch'} labelPlacement="end" justify="start">Pets allowed on the couch</IonCheckbox>
+                <IonCheckbox value={'smoking'} labelPlacement="end" justify="start">{t('sitterWizard.smoking')}</IonCheckbox>
+                <IonCheckbox value={'single'} labelPlacement="end" justify="start">{t('sitterWizard.single')}</IonCheckbox>
+                <IonCheckbox value={'garden'} labelPlacement="end" justify="start">{t('sitterWizard.garden')}</IonCheckbox>
+                <IonCheckbox value={'nochildren'} labelPlacement="end" justify="start">{t('sitterWizard.no-children')}</IonCheckbox>
+                <IonCheckbox value={'notherpets'} labelPlacement="end" justify="start">{t('sitterWizard.no-pets')}</IonCheckbox>
+                <IonCheckbox value={'nocats'} labelPlacement="end" justify="start">{t('sitterWizard.no-cats')}</IonCheckbox>
+                <IonCheckbox value={'owndog'} labelPlacement="end" justify="start">{t('sitterWizard.own-dog')}</IonCheckbox>
+                <IonCheckbox value={'couch'} labelPlacement="end" justify="start">{t('sitterWizard.couch')}</IonCheckbox>
               </IonRow>
             </IonCol>
           }
           {
             step === 4 && <IonCol className="p-4">
-              <IonText className="text-2xl font-semibold text-green-500 mb-4 block w-full">What are you skills in pet care?</IonText>
+              <IonText className="text-2xl font-semibold text-green-500 mb-4 block w-full">{t('sitterWizard.question_skills')}</IonText>
               <IonRow className="bg-gray-200 rounded-md p-4 flex flex-col gap-3">
-                <IonCheckbox value={'smoking'} labelPlacement="end" justify="start">Over 3 years of experience in pet carring</IonCheckbox>
-                <IonCheckbox value={'single'} labelPlacement="end" justify="start">Care for active dogs</IonCheckbox>
-                <IonCheckbox value={'garden'} labelPlacement="end" justify="start">Care for senior dogs</IonCheckbox>
-                <IonCheckbox value={'nochildren'} labelPlacement="end" justify="start">Care for puppies</IonCheckbox>
-                <IonCheckbox value={'notherpets'} labelPlacement="end" justify="start">Skilled in first aid</IonCheckbox>
-                <IonCheckbox value={'nocats'} labelPlacement="end" justify="start">No cats at home</IonCheckbox>
-                <IonCheckbox value={'owndog'} labelPlacement="end" justify="start">Knows how to administer medications</IonCheckbox>
-                <IonCheckbox value={'couch'} labelPlacement="end" justify="start">knows how to make injections</IonCheckbox>
+                <IonCheckbox value={'smoking'} labelPlacement="end" justify="start">{t('sitterWizard.skill_carrying')}</IonCheckbox>
+                <IonCheckbox value={'single'} labelPlacement="end" justify="start">{t('sitterWizard.skill_active_dog')}</IonCheckbox>
+                <IonCheckbox value={'garden'} labelPlacement="end" justify="start">{t('sitterWizard.skill_senior_dog')}</IonCheckbox>
+                <IonCheckbox value={'nochildren'} labelPlacement="end" justify="start">{t("sitterWizard.skill_puppies")}</IonCheckbox>
+                <IonCheckbox value={'notherpets'} labelPlacement="end" justify="start">{t('sitterWizard.skill_first_aid')}</IonCheckbox>
+                <IonCheckbox value={'nocats'} labelPlacement="end" justify="start">{t('sitterWizard.skill_no_cats')}</IonCheckbox>
+                <IonCheckbox value={'owndog'} labelPlacement="end" justify="start">{t('sitterWizard.skill_medic')}</IonCheckbox>
+                <IonCheckbox value={'couch'} labelPlacement="end" justify="start">{t('sitterWizard.skill_inject')}</IonCheckbox>
               </IonRow>
             </IonCol>
           }
           {
             step === 5 && <IonCol className="p-4">
-              <IonText className="text-2xl font-semibold text-green-500 mb-4 block w-full">Tell your customers what are the rules of your services.</IonText>
-              <IonTextarea className="border-2 rounded-md px-3" placeholder="write here..." rows={5} />
+              <IonText className="text-2xl font-semibold text-green-500 mb-4 block w-full">{t('sitterWizard.question_rules')}</IonText>
+              <IonTextarea className="border-2 rounded-md px-3" placeholder={t('sitterWizard.price')} rows={5} />
             </IonCol>
           }
           {
             step === 6 && <IonCol className="p-4">
-              <IonText className="text-2xl font-semibold text-green-500 mb-4 block w-full">Location</IonText>
-              <IonText className="mb-2 block w-full">Address</IonText>
-              <CustomInput className="border-2 rounded-md px-3 mb-3" placeholder="Address" />
-              <IonText className="mb-2 block w-full">Apt, suite, building#</IonText>
-              <CustomInput className="border-2 rounded-md px-3 mb-3" placeholder="Apt, suite, building#" />
+              <IonText className="text-2xl font-semibold text-green-500 mb-4 block w-full">{t('base.label.location')}</IonText>
+              <IonText className="mb-2 block w-full">{t('base.label.address')}</IonText>
+              <CustomInput className="border-2 rounded-md px-3 mb-3" placeholder={t('base.label.address')} />
+              <IonText className="mb-2 block w-full">{t('base.label.apartment')}</IonText>
+              <CustomInput className="border-2 rounded-md px-3 mb-3" placeholder={t('base.label.apartment')} />
             </IonCol>
           }
           {
             step === 7 && <IonCol className="p-4">
-              <IonText className="text-2xl font-semibold text-green-500 mb-4 block w-full">How much do your services cost?</IonText>
-              <IonText className="mb-2 block w-full">Boarding</IonText>
-              <CustomInput className="border-2 rounded-md px-3 mb-3" placeholder="Choose your price" />
-              <IonText className="mb-2 block w-full">Dog Walking</IonText>
-              <CustomInput className="border-2 rounded-md px-3 mb-3" placeholder="Choose your price" />
-              <IonText className="mb-2 block w-full">Drop in Visits</IonText>
-              <CustomInput className="border-2 rounded-md px-3 mb-3" placeholder="Choose your price" />
-              <IonText className="mb-2 block w-full">Dog Day Care</IonText>
-              <CustomInput className="border-2 rounded-md px-3 mb-3" placeholder="Choose your price" />
-              <IonText className="mb-2 block w-full">Mnoznik Ceny</IonText>
-              <CustomInput className="border-2 rounded-md px-3 mb-3" placeholder="Choose your price" />
+              <IonText className="text-2xl font-semibold text-green-500 mb-4 block w-full">{t('sitterWizard.question_pricing')}</IonText>
+              <IonText className="mb-2 block w-full">{t('homePage.boarding')}</IonText>
+              <CustomInput className="border-2 rounded-md px-3 mb-3" placeholder={('sitterWizard.price')} />
+              <IonText className="mb-2 block w-full">{t('homePage.dogwalking')}</IonText>
+              <CustomInput className="border-2 rounded-md px-3 mb-3" placeholder={('sitterWizard.price')} />
+              <IonText className="mb-2 block w-full">{('homePage.dropinvisits')}</IonText>
+              <CustomInput className="border-2 rounded-md px-3 mb-3" placeholder={('sitterWizard.price')} />
+              <IonText className="mb-2 block w-full">{t('homePage.dogdaycare')}</IonText>
+              <CustomInput className="border-2 rounded-md px-3 mb-3" placeholder={('sitterWizard.price')} />
+              <IonText className="mb-2 block w-full">{('homePage.')}</IonText>
+              <CustomInput className="border-2 rounded-md px-3 mb-3" placeholder={('sitterWizard.price')} />
             </IonCol>
           }
           {
             step === 8 && <IonCol className="p-4">
-              <IonText className="text-2xl font-semibold text-green-500 mb-4 block w-full">Let us know when you are available?</IonText>
+              <IonText className="text-2xl font-semibold text-green-500 mb-4 block w-full">{t('sitterWizard.question_avaliability')}</IonText>
               <IonDatetime presentation="date"></IonDatetime>
             </IonCol>
           }
@@ -154,18 +156,18 @@ const SitterWizard : React.FC = () => {
             step === 9 && <IonCol className="p-4">
               {
                 desc && <IonRow className="flex flex-row justify-between my-2">
-                  <IonText className="text-2xl font-bold">Two more thing</IonText>
+                  <IonText className="text-2xl font-bold">{t('sitterWizard.two_more')}</IonText>
                   <IonIcon onClick={() => setDesc(false)} icon={closeOutline} size="large" className="active:scale-95" />
                 </IonRow>
               }
               {
                 desc && <IonRow className="flex flex-col p-3 bg-gray-50 rounded-lg">
-                  <IonText className="text-green-600 font-bold text-lg">1. IDENTITY VERIFICATION</IonText>
-                  <IonText className="text-sm">Make a transfer of PLN 0.01 from your account to our account: </IonText>
+                  <IonText className="text-green-600 font-bold text-lg">1. {t('sitterWizard.identity')}</IonText>
+                  <IonText className="text-sm">{t('sitterWizard.identity_desc')} </IonText>
                   <div className="p-2 rounded-md bg-green-50">
                     <IonRow>
                       <IonCol>
-                        <IonText>Account no.</IonText>
+                        <IonText>{t('sitterWizard.acc_no')}.</IonText>
                         <IonText>14 1870 1045 2078 1070 7913 0005</IonText>
                       </IonCol>
                       <IonButton fill="clear">
@@ -174,7 +176,7 @@ const SitterWizard : React.FC = () => {
                     </IonRow>
                     <IonRow>
                       <IonCol>
-                        <IonText>Account no.</IonText>
+                        <IonText>{t('base.label.name')}</IonText>
                         <IonText>14 1870 1045 2078 1070 7913 0005</IonText>
                       </IonCol>
                       <IonButton fill="clear">
@@ -182,42 +184,42 @@ const SitterWizard : React.FC = () => {
                       </IonButton>
                     </IonRow>
                   </div>
-                  <IonText className="text-green-600 font-bold text-lg">2. WITHDRAWAL ACCOUNT: </IonText>
-                  <IonText className="text-sm">Now we will connect your profile to the payment platform which will conduct a short verification. Fill in the details of your personal account below. You will be able to edit it in the "Account Settings" -&gt; "Your Payouts" tab.</IonText>
+                  <IonText className="text-green-600 font-bold text-lg">{t('sitterWizard.withdraw')}</IonText>
+                  <IonText className="text-sm">{t('sitterWizard.withdraw_desc')}</IonText>
                 </IonRow>
               }
               
               
-              <IonText className="text-2xl font-semibold mb-4 block w-full">Account Type</IonText>
+              <IonText className="text-2xl font-semibold mb-4 block w-full">{t('sitterWizard.acc_type')}</IonText>
               <IonText onClick={()=>setAcctype(true)} className={"p-4 text-lg flex justify-center items-center border-2 rounded-lg mb-2 " + (acctype ? 'border-green-400 shadow-md shadow-green-300': '')}>
-                I'm a Individual
+                {t('sitterWizard.individual')}
               </IonText>
               <IonText onClick={()=>setAcctype(false)} className={"p-4 text-lg flex justify-center items-center border-2 rounded-lg mb-2 " + (!acctype ? 'border-green-400 shadow-md shadow-green-300': '')}>
-                I represent a company
+                {t('sitterWizard.company')}
               </IonText>
-              <IonText className="mb-2 block w-full">Country</IonText>
-              <CustomInput className="border-2 rounded-md px-3 mb-3" placeholder="Address" />
-              <IonText className="mb-2 block w-full">Bank account Number</IonText>
+              <IonText className="mb-2 block w-full">{t('base.label.country')}</IonText>
+              <CustomInput className="border-2 rounded-md px-3 mb-3" placeholder={t('base.label.country')} />
+              <IonText className="mb-2 block w-full">{t('sitterWizard.bank_number')}</IonText>
               <CustomInput className="border-2 rounded-md px-3 mb-3" placeholder="0000 0000 0000 0000 0000 00" />
 
               <IonCol className="flex flex-col p-3 rounded-lg border-2 border-yellow-500 bg-yellow-50">
                 <IonRow>
                   <IonCol>
-                    <IonText>Stripe needs more information</IonText>
+                    <IonText>{t('sitterWizard.stripe')}</IonText>
                   </IonCol>
                   <IonCol>
                     <IonImg src={stripe} />
                   </IonCol>
                 </IonRow>
                 <IonRow>
-                  <IonText>In order for you receive payments you need to add few more details to your stripe account to verify your account</IonText>
+                  <IonText>{t('sitterWizard.stripe_desc')}</IonText>
                 </IonRow>
-                <IonButton className="block w-full" color='success'>Get Verified</IonButton>
+                <IonButton className="block w-full" color='success'>{t('base.button.verified')}</IonButton>
               </IonCol>
 
-              <IonText className="text-center text-sm block w-full">By saving details, you agree to the</IonText>
-              <IonText className="text-center text-md underline block w-full mb-4 active:scale-95">Stripe Connected Account Agreement</IonText>
-              <IonButton className="block w-full" color='success'>Save</IonButton>
+              <IonText className="text-center text-sm block w-full">{t('sitterWizard.saving')}</IonText>
+              <IonText className="text-center text-md underline block w-full mb-4 active:scale-95">{t('sitterWizard.trust')}</IonText>
+              <IonButton className="block w-full" color='success'>{t('base.button.save')}</IonButton>
             </IonCol>
           }
         </IonRow>
@@ -225,7 +227,7 @@ const SitterWizard : React.FC = () => {
       {
         step < 9 && <IonFooter>
         <IonRow className="w-full flex px-2 gap-2">
-          {step!==0 && <IonButton onClick={()=>setStep(step - 1)} className="flex-1" color='success' fill="outline">Previous</IonButton>}
+          {step!==0 && <IonButton onClick={()=>setStep(step - 1)} className="flex-1" color='success' fill="outline">{t('base.button.previous')}</IonButton>}
           <IonButton onClick={()=>setStep(step + 1)} className="flex-1" color='success'>Next</IonButton>
         </IonRow>
       </IonFooter>

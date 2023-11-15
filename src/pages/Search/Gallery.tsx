@@ -25,6 +25,7 @@ import gallery4 from '../../assets/imgs/gallery/image4.png'
 import gallery5 from '../../assets/imgs/gallery/image5.png'
 import gallery6 from '../../assets/imgs/gallery/image6.png'
 import gallery7 from '../../assets/imgs/gallery/image7.png'
+import { useTranslation } from "react-i18next"
 
 const FilterModal = styled(IonModal)`
   --ion-background-color: transparent;
@@ -37,6 +38,7 @@ const FilterModal = styled(IonModal)`
 
 const Gallery: React.FC = () => {
   const router = useIonRouter()
+  const { t, i18n } = useTranslation()
   const [open, setOpen] = useState(false)
   const [selectedOne, setSelectedOne] = useState()
 
@@ -51,7 +53,7 @@ const Gallery: React.FC = () => {
         <IonButton onClick={()=>router.goBack()} fill="clear" color="dark">
           <IonIcon icon={chevronBack} />
         </IonButton>
-        <IonText className="text-2xl">Gallery</IonText>
+        <IonText className="text-2xl">{t('base.label.gallery')}</IonText>
       </IonHeader>
       <IonContent>
         <IonRow className="px-2">

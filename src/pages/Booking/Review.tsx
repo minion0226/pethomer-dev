@@ -2,8 +2,10 @@ import { IonAvatar, IonButton, IonCol, IonContent, IonHeader, IonIcon, IonImg, I
 import { chevronBack, star } from "ionicons/icons"
 import avatar from '../../assets/imgs/avatar.png'
 import review from '../../assets/imgs/review.png'
+import { useTranslation } from "react-i18next"
 
 const Review : React.FC = () => {
+  const { t } = useTranslation()
   const router = useIonRouter()
 
   return (
@@ -11,7 +13,7 @@ const Review : React.FC = () => {
       <IonHeader>
         <IonRow className="p-3 flex items-center gap-2">
           <IonIcon onClick={()=>{ router.goBack() }} icon={chevronBack} />
-          <IonText>Review & Rating</IonText>
+          <IonText>{t('base.label.review_rating')}</IonText>
         </IonRow>
         <IonRow className="p-2 flex gap-2 items-center">
           <IonAvatar>
@@ -30,7 +32,7 @@ const Review : React.FC = () => {
           </IonRow>
           <IonRow className="flex flex-col mx-3">
             <IonText className="text-lg px-2">
-              How much do you rate them?
+              {t('base.label.rate_what')}
             </IonText>
             <IonRow className="flex justify-center gap-3 p-6 rounded-md bg-white w-full">
               <IonIcon className="text-yellow-500" icon={star} size="large" />
@@ -41,12 +43,12 @@ const Review : React.FC = () => {
             </IonRow>
           </IonRow>
           <IonRow className="flex flex-col mx-3">
-            <IonText className="text-lg">Write your review</IonText>
-            <IonTextarea className="bg-white rounded-md p-3" placeholder="Write here..." rows={5}>
+            <IonText className="text-lg">{t('base.label.write_review')}</IonText>
+            <IonTextarea className="bg-white rounded-md p-3" placeholder={t('base.placeholder.write_here')} rows={5}>
             </IonTextarea>
           </IonRow>
           <IonRow>
-            <IonButton onClick={() => router.push('/tab/booking')} className="block w-full m-3">Submit</IonButton>
+            <IonButton onClick={() => router.push('/tab/booking')} className="block w-full m-3">{t('base.button.submit')}</IonButton>
           </IonRow>
         </IonCol>
       </IonContent>

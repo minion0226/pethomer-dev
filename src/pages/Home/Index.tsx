@@ -32,9 +32,10 @@ import careImg from '../../assets/imgs/icons/care.png'
 import visitImg from '../../assets/imgs/icons/visit.png'
 import walkingImg from '../../assets/imgs/icons/walking.png'
 
-import { checkmarkCircle, closeOutline, ellipseOutline, locationOutline } from 'ionicons/icons'
+import { calendarOutline, checkmarkCircle, closeOutline, ellipseOutline, locationOutline } from 'ionicons/icons'
 import { useState } from 'react'
 import styled from 'styled-components'
+import { useTranslation } from 'react-i18next'
 
 const Input = styled(IonInput)`  
 --padding-end: 10px;
@@ -50,6 +51,7 @@ const Select = styled(IonSelect)`
 `
 
 const Home: React.FC = () => {
+  const { t, i18n } = useTranslation()
   const router = useIonRouter();
   
   const [sheetOpen, setSheetOpen] = useState(false)
@@ -79,30 +81,30 @@ const Home: React.FC = () => {
           <IonImg className='absolute' src={maskImg7} style={{ bottom: '3%', left: '27%'}} />
         </IonRow>
         <IonRow class='px-3'>
-          <IonCol onClick={()=> handleFilter('boarding')} class='ion-activatable ripple-parent relative py-2 flex flex-col items-center border-amber-400 border rounded-md m-3'>
+          <IonCol onClick={()=> handleFilter('boarding')} class='ion-activatable ripple-parent relative py-2 flex flex-col items-center border-amber-400 bg-white border rounded-md m-3'>
             <IonRippleEffect></IonRippleEffect> 
             <IonImg src={boardingImg} class='w-12 h-12 mb-2' />
-            <IonLabel>Boarding</IonLabel>
+            <IonLabel>{t('homePage.boarding')}</IonLabel>
             <IonIcon className='absolute block w-6 h-6 top-2 right-2 text-amber-400' icon={checkmarkCircle} />
           </IonCol>
-          <IonCol class='ion-activatable ripple-parent relative py-2 flex flex-col items-center border-gray-200 border rounded-md m-3'>
+          <IonCol class='ion-activatable ripple-parent relative py-2 flex flex-col items-center bg-white border-gray-200 border rounded-md m-3'>
             <IonRippleEffect></IonRippleEffect> 
             <IonImg src={careImg} class='w-12 h-12 mb-2' />
-            <IonLabel>Dog Walking</IonLabel>
+            <IonLabel>{t('homePage.dogwalking')}</IonLabel>
             <IonIcon className='absolute block w-6 h-6 top-2 right-2 text-gray-300' icon={ellipseOutline} />
           </IonCol>
         </IonRow>
         <IonRow class='px-3'>
-          <IonCol class='ion-activatable ripple-parent relative py-2 flex flex-col items-center border-gray-200 border rounded-md m-3'>
+          <IonCol class='ion-activatable ripple-parent relative py-2 flex flex-col items-center bg-white border-gray-200 border rounded-md m-3'>
             <IonRippleEffect></IonRippleEffect> 
             <IonImg src={visitImg} class='w-12 h-12 mb-2' />
-            <IonLabel>Drop In Visits</IonLabel>
+            <IonLabel>{t('homePage.dropinvisits')}</IonLabel>
             <IonIcon className='absolute block w-6 h-6 top-2 right-2 text-gray-300' icon={ellipseOutline} />
           </IonCol>
-          <IonCol class='ion-activatable ripple-parent relative py-2 flex flex-col items-center border-gray-200 border rounded-md m-3'>
+          <IonCol class='ion-activatable ripple-parent relative py-2 flex flex-col items-center bg-white border-gray-200 border rounded-md m-3'>
             <IonRippleEffect></IonRippleEffect> 
             <IonImg src={walkingImg} class='w-12 h-12 mb-2' />
-            <IonLabel>Dog Day Care</IonLabel>
+            <IonLabel>{t('homePage.dogdaycare')}</IonLabel>
             <IonIcon className='absolute block w-6 h-6 top-2 right-2 text-gray-300' icon={ellipseOutline} />
           </IonCol>
         </IonRow>
@@ -114,7 +116,7 @@ const Home: React.FC = () => {
         breakpoints={[0, 0.25, 0.5, 0.85]}>
         <IonContent>
           <IonRow className='p-3 flex justify-between items-center'>
-            <IonText>Services</IonText>
+            <IonText>{t('base.label.services')}</IonText>
             <IonButton size='small' fill='clear' color='dark' onClick={() => setSheetOpen(false)}>
               <IonIcon className='top-1 right-3' icon={closeOutline}></IonIcon>
             </IonButton>
@@ -122,49 +124,48 @@ const Home: React.FC = () => {
           <IonRow className='mx-3 mb-3 gap-3'>
             <IonCol className='border border-gray-300 rounded-lg flex gap-2 items-center'>
               <IonImg className='w-12 h-12 p-1' src={boardingImg} />
-              <IonText>Boarding</IonText>
+              <IonText>{t('homePage.boarding')}</IonText>
             </IonCol>
             <IonCol className='border border-gray-300 rounded-lg flex gap-2 items-center'>
               <IonImg className='w-12 h-12 p-1' src={walkingImg} />
-              <IonText>Dog Walking</IonText>
+              <IonText>{t('homePage.dogwalking')}</IonText>
             </IonCol>
           </IonRow>
           <IonRow className='mx-3 mb-3 gap-3'>
             <IonCol className='border border-gray-300 rounded-lg flex gap-2 items-center'>
               <IonImg className='w-12 h-12 p-1' src={visitImg} />
-              <IonText>Drop In Visits</IonText>
+              <IonText>{t('homePage.dropinvisits')}</IonText>
             </IonCol>
             <IonCol className='border border-gray-300 rounded-lg flex gap-2 items-center'>
               <IonImg className='w-12 h-12 p-1' src={careImg} />
-              <IonText>Dog Day Care</IonText>
+              <IonText>{t('homePage.dogdaycare')}</IonText>
             </IonCol>
           </IonRow>
           <IonRow className='relative mx-3 mb-3 gap-3'>
-            <IonLabel>Please Select Location</IonLabel>
+            <IonLabel>{t('base.label.select_location')}</IonLabel>
             <Input
               className="pl-16 w-full border-2 border-gray-200 rounded-md"
-              placeholder='Search Location'>
+              placeholder={t('base.placeholder.search_location')}>
               <IonIcon icon={locationOutline} slot='label' />
             </Input>
           </IonRow>
           <IonRow className='mx-3 mb-3 gap-3'>
-            <IonLabel>Pet Weight</IonLabel>
-            <Select class='border-2 border-gray-200 rounded-md px-2' placeholder='Choose Pet Weight' justify='space-between'>
-              <IonSelectOption value='small'>small</IonSelectOption>
-              <IonSelectOption value='medium'>medium</IonSelectOption>
-              <IonSelectOption value='large'>large</IonSelectOption>
-              <IonSelectOption value='giant'>giant</IonSelectOption>
+            <IonLabel>{t('base.label.pet_weight')}</IonLabel>
+            <Select class='border-2 border-gray-200 rounded-md px-2' placeholder={t('base.placeholder.choose_weight')} justify='space-between'>
+              <IonSelectOption value='small'>{t('base.label.weight_small')}</IonSelectOption>
+              <IonSelectOption value='medium'>{t('base.label.weight_medium')}</IonSelectOption>
+              <IonSelectOption value='large'>{t('base.label.weight_large')}</IonSelectOption>
+              <IonSelectOption value='giant'>{t('base.label.weight_giant')}</IonSelectOption>
             </Select>
           </IonRow>
-          <IonRow className='mx-3 mb-3 gap-3'>
-            <IonLabel>Date</IonLabel>
-            <Input
-              className="pl-16 w-full border-2 border-gray-200 rounded-md"
-              placeholder='Search Location'>
-              <IonIcon icon={locationOutline} slot='label' />
-            </Input>
+          <IonRow className='mx-3 mb-3'>
+            <IonText className='block w-full mx-2 mb-2'>{t('base.label.date')}</IonText>
+            <IonCol className='relative flex items-center p-0 border-2 border-gray-200 rounded-md'>
+              <Input className='bg-white rounded-md' readonly placeholder={t('base.placeholder.date_range')} />
+              <IonIcon className='absolute text-gray-400 right-3 z-10' icon={calendarOutline} />
+            </IonCol>
           </IonRow>
-          <IonButton onClick={handleSearch} className='block mx-3' color='success'>Search</IonButton>
+          <IonButton onClick={handleSearch} className='block mx-3' color='success'>{t('base.button.search')}</IonButton>
         </IonContent>
       </IonModal>
     </IonPage>

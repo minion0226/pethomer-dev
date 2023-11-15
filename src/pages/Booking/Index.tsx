@@ -168,31 +168,31 @@ const Booking: React.FC = () => {
         <IonCard className='relative bg-white'>
           <IonIcon className='absolute top-3 right-3 z-10' onClick={()=>setFilterOpen(false)} icon={closeOutline} size='large' />
           <IonCardHeader className='flex flex-row mx-3 items-center justify-start'>
-            <IonText className='text-lg'>Filter</IonText>
+            <IonText className='text-lg'>{t('base.label.filter')}</IonText>
           </IonCardHeader>
           <IonCardContent>
             <IonRow className='mb-2'>
-              <IonLabel className='mb-3'>Statue</IonLabel>
+              <IonLabel className='mb-3'>{t('base.label.status')}</IonLabel>
               <IonRow className='w-full flex flex-row gap-1'>
-                <IonText className='py-1 px-2 border-2 border-yellow-400 text-yellow-400 rounded-full text-sm active:scale-95'>Paid</IonText>
-                <IonText className='py-1 px-2 border-2 border-yellow-400 text-yellow-400 rounded-full text-sm active:scale-95'>Completed</IonText>
-                <IonText className='py-1 px-2 border-2 border-yellow-400 text-yellow-400 rounded-full text-sm active:scale-95'>Accepted</IonText>
-                <IonText className='py-1 px-2 border-2 border-yellow-400 text-yellow-400 rounded-full text-sm active:scale-95'>Rejected</IonText>
+                <IonText className='py-1 px-2 border-2 border-yellow-400 text-yellow-400 rounded-full text-sm active:scale-95'>{t('base.button.paid')}</IonText>
+                <IonText className='py-1 px-2 border-2 border-yellow-400 text-yellow-400 rounded-full text-sm active:scale-95'>{t('base.button.completed')}</IonText>
+                <IonText className='py-1 px-2 border-2 border-yellow-400 text-yellow-400 rounded-full text-sm active:scale-95'>{t('base.button.accepted')}</IonText>
+                <IonText className='py-1 px-2 border-2 border-yellow-400 text-yellow-400 rounded-full text-sm active:scale-95'>{t('base.button.rejected')}</IonText>
               </IonRow>
             </IonRow>
             <IonRow>
-              <IonText className='block w-full mx-2 mb-2'>Date of the service</IonText>
+              <IonText className='block w-full mx-2 mb-2'>{t('base.label.date_service')}</IonText>
               <IonCol className='relative flex items-center p-0 border-2 border-gray-200 rounded-md'>
-                <CustomInput className='bg-white rounded-md' readonly placeholder='DD/MM/YYYY from-to' />
+                <CustomInput className='bg-white rounded-md' readonly placeholder={t('base.placeholder.date_range')} />
                 <IonIcon className='absolute text-gray-400 right-3 z-10' icon={calendarOutline} />
               </IonCol>
             </IonRow>
             <IonRow>
               <IonCol>
-                <IonButton className='block' onClick={()=>setFilterOpen(false)} fill='outline' color='success'>Cancel</IonButton>
+                <IonButton className='block' onClick={()=>setFilterOpen(false)} fill='outline' color='success'>{t('base.button.cancel')}</IonButton>
               </IonCol>
               <IonCol>
-                <IonButton className='block' onClick={()=>setFilterOpen(false)} color='success'>Accept</IonButton>
+                <IonButton className='block' onClick={()=>setFilterOpen(false)} color='success'>{t('base.button.accept')}</IonButton>
               </IonCol>
             </IonRow>
           </IonCardContent>

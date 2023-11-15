@@ -1,5 +1,6 @@
 import { IonContent, IonInput, IonIcon, IonPage, IonRow, IonText, useIonRouter, IonCol, IonButton } from "@ionic/react"
 import { chevronBack, chevronDown } from "ionicons/icons";
+import { useTranslation } from "react-i18next";
 import styled from "styled-components"
 
 const CustomInput = styled(IonInput)`
@@ -8,12 +9,13 @@ const CustomInput = styled(IonInput)`
 
 const EditPayment : React.FC = () => {
   const router = useIonRouter()
+  const { t } = useTranslation()
   return (
     <IonPage>
       <IonContent color='light'>
         <IonRow className="flex items-center p-3 gap-2">
           <IonIcon onClick={()=> router.goBack()} icon={chevronBack} />
-          <IonText className="text-lg font-semibold">Payment Methods</IonText>
+          <IonText className="text-lg font-semibold">{t('morePage.payment')}</IonText>
         </IonRow>
 
         <IonRow className="mx-4 mb-2">
@@ -24,36 +26,36 @@ const EditPayment : React.FC = () => {
         </IonRow>
 
         <IonRow className="mx-4 text-sm text-gray-400">
-          <IonText>I authorise Pethomer to send instructions to the financial institution that issued my card to take payments from my card account in accordance with the terms of my agreement with you.</IonText>
+          <IonText>{t('base.message.payment')}</IonText>
         </IonRow>
 
         <IonRow className="m-4">
-          <IonText className="text-lg font-semibold">Payment methods</IonText>
+          <IonText className="text-lg font-semibold">{t('morePage.payment')}</IonText>
         </IonRow>
 
         <IonRow className="mx-4 mb-2">
-          <IonText className="mb-2">Card holder's Name</IonText>
+          <IonText className="mb-2">{t('base.label.holder_name')}</IonText>
           <CustomInput className="bg-white rounded-md flex items-center" readonly placeholder="John Doe"></CustomInput>
         </IonRow>
 
         <IonRow className="mx-4 mb-2">
           <IonCol className="pl-0">
-            <IonText className="mb-2">Street Address</IonText>
+            <IonText className="mb-2">{t('base.label.street')}</IonText>
             <CustomInput className="bg-white rounded-md flex items-center" readonly placeholder="John Doe"></CustomInput>
           </IonCol>
           <IonCol className="pr-0">
-            <IonText className="mb-2">Apt # Optional</IonText>
+            <IonText className="mb-2">{t('base.label.apartment')}</IonText>
             <CustomInput className="bg-white rounded-md flex items-center" readonly placeholder="John Doe"></CustomInput>
           </IonCol>
         </IonRow>
 
         <IonRow className="mx-4 mb-2">
           <IonCol className="pl-0">
-            <IonText className="mb-2">Postal Code</IonText>
+            <IonText className="mb-2">{t('base.label.code')}</IonText>
             <CustomInput className="bg-white rounded-md flex items-center" readonly placeholder="John Doe"></CustomInput>
           </IonCol>
           <IonCol className="pr-0">
-            <IonText className="mb-2">City</IonText>
+            <IonText className="mb-2">{t('base.label.city')}</IonText>
             <CustomInput className="bg-white rounded-md relative flex items-center" readonly placeholder="John Doe">
               <IonIcon className="absolute block right-3 text-gray-400 z-10" icon={chevronDown} />
             </CustomInput>
@@ -62,11 +64,11 @@ const EditPayment : React.FC = () => {
 
         <IonRow className="mx-4 mb-2">
           <IonCol className="pl-0">
-            <IonText className="mb-2">Postal Code</IonText>
+            <IonText className="mb-2">{t('base.label.state')}</IonText>
             <CustomInput className="bg-white rounded-md flex items-center" readonly placeholder="John Doe"></CustomInput>
           </IonCol>
           <IonCol className="pr-0">
-            <IonText className="mb-2">City</IonText>
+            <IonText className="mb-2">{t('base.label.country')}</IonText>
             <CustomInput className="bg-white rounded-md relative flex items-center" readonly placeholder="John Doe">
               <IonIcon className="absolute block right-3 text-gray-400 z-10" icon={chevronDown} />
             </CustomInput>
@@ -74,7 +76,7 @@ const EditPayment : React.FC = () => {
         </IonRow>
 
         <IonRow className="mx-4">
-          <IonButton className="block w-full text-white bg-lime-500 rounded-lg" fill="clear">Save Detail</IonButton>
+          <IonButton className="block w-full text-white bg-lime-500 rounded-lg" fill="clear">{t('base.button.save_detail')}</IonButton>
         </IonRow>
 
       </IonContent>
