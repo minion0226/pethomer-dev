@@ -1,4 +1,4 @@
-import { IonAvatar, IonButton, IonCol, IonContent, IonIcon, IonImg, IonInput, IonPage, IonRow, IonText, useIonRouter } from "@ionic/react"
+import { IonAvatar, IonButton, IonCol, IonContent, IonHeader, IonIcon, IonImg, IonInput, IonPage, IonRow, IonText, useIonRouter } from "@ionic/react"
 import { calendarOutline, chevronBack } from "ionicons/icons"
 import styled from "styled-components"
 
@@ -8,12 +8,24 @@ import { useTranslation } from "react-i18next"
 const CustomInput = styled(IonInput)`
   --padding-start: 10px;
 `
+const StatusBar = styled(IonHeader)`
+  padding-top: constant(safe-area-inset-top); /* iOS 11.2+ */
+  padding-top: env(safe-area-inset-top); /* iOS 11.2+ */
+`
 
 const EditInfo : React.FC = () => {
   const router = useIonRouter()
   const { t } = useTranslation()
+  
+  const isIOS = () => {
+    const userAgent = window.navigator.userAgent.toLowerCase();
+    return /iphone|ipad|ipod/.test(userAgent);
+  }
+
   return (
     <IonPage>
+      { isIOS() && <StatusBar /> }
+
       <IonContent color='light'>
         <IonRow className="flex items-center gap-2 p-4">
           <IonIcon onClick={()=> router.goBack()} icon={chevronBack} />

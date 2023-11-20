@@ -59,7 +59,7 @@ const Gallery: React.FC = () => {
   return(
     <IonPage>
       {isIOS() ?
-        <StatusBar>
+        <StatusBar className="flex items-center">
           <IonButton onClick={()=>router.goBack()} fill="clear" color="dark">
             <IonIcon icon={chevronBack} />
           </IonButton>

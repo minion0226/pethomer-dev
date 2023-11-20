@@ -1,4 +1,4 @@
-import { IonButton, IonCheckbox, IonCol, IonContent, IonDatetime, IonFooter, IonHeader, IonIcon, IonImg, IonInput, IonPage, IonRow, IonText, IonTextarea, useIonRouter } from "@ionic/react"
+import { IonButton, IonCheckbox, IonCol, IonContent, IonDatetime, IonFooter, IonHeader, IonIcon, IonImg, IonInput, IonItem, IonLabel, IonPage, IonRow, IonText, IonTextarea, useIonRouter } from "@ionic/react"
 import { chevronBack, closeOutline, copyOutline } from "ionicons/icons"
 import { useState } from "react"
 import styled from "styled-components"
@@ -92,52 +92,145 @@ const SitterWizard : React.FC = () => {
           {
             step === 1 && <IonCol className="p-4">
               <IonText className="text-2xl font-semibold text-green-500 mb-4 block w-full">{t('sitterWizard.question_services')}</IonText>
-              <IonRow className="bg-gray-200 rounded-md p-4 flex flex-col gap-3 justify-start overflow-hidden">
-                <IonCheckbox value={'boarding'} labelPlacement="end" justify="start">{t('homePage.boarding')}</IonCheckbox>
-                <IonCheckbox value={'dogwalking'} labelPlacement="end" justify="start">{t('homePage.dogwalking')}</IonCheckbox>
-                <IonCheckbox value={'dropinvisit'} labelPlacement="end" justify="start">{t('homePage.dropinvisits')}</IonCheckbox>
-                <IonCheckbox value={'dogdaycare'} labelPlacement="end" justify="start">{t('homePage.dogdaycare')}</IonCheckbox>
+              <IonRow className="bg-gray-200 rounded-md flex flex-col justify-start overflow-hidden">
+                <IonItem color='light' lines="none">
+                  <IonCheckbox value={'boarding'} slot="start" />
+                  <IonLabel>{t('homePage.boarding')}</IonLabel>
+                </IonItem>
+
+                <IonItem color='light' lines="none">
+                  <IonCheckbox value={'dogwalking'} slot="start" />
+                  <IonLabel>{t('homePage.dogwalking')}</IonLabel>
+                </IonItem>
+
+                <IonItem color='light' lines="none">
+                  <IonCheckbox value={'dropinvisit'} slot="start" />
+                  <IonLabel>{t('homePage.dropinvisits')}</IonLabel>
+                </IonItem>
+
+                <IonItem color='light' lines="none">
+                  <IonCheckbox value={'dogdaycare'} slot="start" />
+                  <IonLabel>{t('homePage.dogdaycare')}</IonLabel>
+                </IonItem>
               </IonRow>
             </IonCol>
           }
           {
             step === 2 && <IonCol className="p-4">
               <IonText className="text-2xl font-semibold text-green-500 mb-4 block w-full">{t('sitterWizard.question_preference')}</IonText>
-              <IonRow className="bg-gray-200 rounded-md p-4 flex flex-col gap-3 justify-start overflow-hidden">
-                <IonCheckbox value={'small'} labelPlacement="end" justify="start">{t('base.label.weight_small')}</IonCheckbox>
-                <IonCheckbox value={'medium'} labelPlacement="end" justify="start">{t('base.label.weight_medium')}</IonCheckbox>
-                <IonCheckbox value={'large'} labelPlacement="end" justify="start">{t('base.label.weight_large')}</IonCheckbox>
-                <IonCheckbox value={'giant'} labelPlacement="end" justify="start">{t('base.label.weight_giant')}</IonCheckbox>
+              <IonRow className="bg-gray-200 rounded-md flex flex-col justify-start overflow-hidden">
+                <IonItem color='light' lines="none">
+                  <IonCheckbox value={'small'} slot="start" />
+                  <IonLabel>{t('base.label.weight_small')}</IonLabel>
+                </IonItem>
+
+                <IonItem color='light' lines="none">
+                  <IonCheckbox value={'medium'} slot="start" />
+                  <IonLabel>{t('base.label.weight_medium')}</IonLabel>
+                </IonItem>
+
+                <IonItem color='light' lines="none">
+                  <IonCheckbox value={'large'} slot="start" />
+                  <IonLabel>{t('base.label.weight_large')}</IonLabel>
+                </IonItem>
+
+                <IonItem color='light' lines="none">
+                  <IonCheckbox value={'giant'} slot="start" />
+                  <IonLabel>{t('base.label.weight_giant')}</IonLabel>
+                </IonItem>
               </IonRow>
             </IonCol>
           }
           {
             step === 3 && <IonCol className="p-4">
               <IonText className="text-2xl font-semibold text-green-500 mb-4 block w-full">{t('sitterWizard.question_sitter')}</IonText>
-              <IonRow className="bg-gray-200 rounded-md p-4 flex flex-col gap-3 justify-start overflow-hidden">
-                <IonCheckbox value={'smoking'} labelPlacement="end" justify="start">{t('sitterWizard.smoking')}</IonCheckbox>
-                <IonCheckbox value={'single'} labelPlacement="end" justify="start">{t('sitterWizard.single')}</IonCheckbox>
-                <IonCheckbox value={'garden'} labelPlacement="end" justify="start">{t('sitterWizard.garden')}</IonCheckbox>
-                <IonCheckbox value={'nochildren'} labelPlacement="end" justify="start">{t('sitterWizard.no-children')}</IonCheckbox>
-                <IonCheckbox value={'notherpets'} labelPlacement="end" justify="start">{t('sitterWizard.no-pets')}</IonCheckbox>
-                <IonCheckbox value={'nocats'} labelPlacement="end" justify="start">{t('sitterWizard.no-cats')}</IonCheckbox>
-                <IonCheckbox value={'owndog'} labelPlacement="end" justify="start">{t('sitterWizard.own-dog')}</IonCheckbox>
-                <IonCheckbox value={'couch'} labelPlacement="end" justify="start">{t('sitterWizard.couch')}</IonCheckbox>
+              <IonRow className="bg-gray-200 rounded-md flex flex-col justify-start overflow-hidden">
+                <IonItem color='light' lines="none">
+                  <IonCheckbox value={'smoking'} slot="start" />
+                  <IonLabel>{t('sitterWizard.smoking')}</IonLabel>
+                </IonItem>
+
+                <IonItem color='light' lines="none">
+                  <IonCheckbox value={'single'} slot="start" />
+                  <IonLabel>{t('sitterWizard.single')}</IonLabel>
+                </IonItem>
+
+                <IonItem color='light' lines="none">
+                  <IonCheckbox value={'garden'} slot="start" />
+                  <IonLabel>{t('sitterWizard.garden')}</IonLabel>
+                </IonItem>
+
+                <IonItem color='light' lines="none">
+                  <IonCheckbox value={'nochildren'} slot="start" />
+                  <IonLabel>{t('sitterWizard.no-children')}</IonLabel>
+                </IonItem>
+
+                <IonItem color='light' lines="none">
+                  <IonCheckbox value={'notherpets'} slot="start" />
+                  <IonLabel>{t('sitterWizard.no-pets')}</IonLabel>
+                </IonItem>
+
+                <IonItem color='light' lines="none">
+                  <IonCheckbox value={'nocats'} slot="start" />
+                  <IonLabel>{t('sitterWizard.no-cats')}</IonLabel>
+                </IonItem>
+
+                <IonItem color='light' lines="none">
+                  <IonCheckbox value={'owndog'} slot="start" />
+                  <IonLabel>{t('sitterWizard.own-dog')}</IonLabel>
+                </IonItem>
+
+                <IonItem color='light' lines="none">
+                  <IonCheckbox value={'couch'} slot="start" />
+                  <IonLabel>{t('sitterWizard.couch')}</IonLabel>
+                </IonItem>
               </IonRow>
             </IonCol>
           }
           {
             step === 4 && <IonCol className="p-4">
               <IonText className="text-2xl font-semibold text-green-500 mb-4 block w-full">{t('sitterWizard.question_skills')}</IonText>
-              <IonRow className="bg-gray-200 rounded-md p-4 flex flex-col gap-3 justify-start overflow-hidden">
-                <IonCheckbox value={'smoking'} labelPlacement="end" justify="start">{t('sitterWizard.skill_carrying')}</IonCheckbox>
-                <IonCheckbox value={'single'} labelPlacement="end" justify="start">{t('sitterWizard.skill_active_dog')}</IonCheckbox>
-                <IonCheckbox value={'garden'} labelPlacement="end" justify="start">{t('sitterWizard.skill_senior_dog')}</IonCheckbox>
-                <IonCheckbox value={'nochildren'} labelPlacement="end" justify="start">{t("sitterWizard.skill_puppies")}</IonCheckbox>
-                <IonCheckbox value={'notherpets'} labelPlacement="end" justify="start">{t('sitterWizard.skill_first_aid')}</IonCheckbox>
-                <IonCheckbox value={'nocats'} labelPlacement="end" justify="start">{t('sitterWizard.skill_no_cats')}</IonCheckbox>
-                <IonCheckbox value={'owndog'} labelPlacement="end" justify="start">{t('sitterWizard.skill_medic')}</IonCheckbox>
-                <IonCheckbox value={'couch'} labelPlacement="end" justify="start">{t('sitterWizard.skill_inject')}</IonCheckbox>
+              <IonRow className="bg-gray-200 rounded-md flex flex-col justify-start overflow-hidden">
+                <IonItem color='light' lines="none">
+                  <IonCheckbox value={'smoking'} slot="start" />
+                  <IonLabel>{t('sitterWizard.skill_carrying')}</IonLabel>
+                </IonItem>
+
+                <IonItem color='light' lines="none">
+                  <IonCheckbox value={'single'} slot="start" />
+                  <IonLabel>{t('sitterWizard.skill_active_dog')}</IonLabel>
+                </IonItem>
+
+                <IonItem color='light' lines="none">
+                  <IonCheckbox value={'garden'} slot="start" />
+                  <IonLabel>{t('sitterWizard.skill_senior_dog')}</IonLabel>
+                </IonItem>
+
+                <IonItem color='light' lines="none">
+                  <IonCheckbox value={'nochildren'} slot="start" />
+                  <IonLabel>{t("sitterWizard.skill_puppies")}</IonLabel>
+                </IonItem>
+
+                <IonItem color='light' lines="none">
+                  <IonCheckbox value={'notherpets'} slot="start" />
+                  <IonLabel>{t('sitterWizard.skill_first_aid')}</IonLabel>
+                </IonItem>
+
+                <IonItem color='light' lines="none">
+                  <IonCheckbox value={'nocats'} slot="start" />
+                  <IonLabel>{t('sitterWizard.skill_no_cats')}</IonLabel>
+                </IonItem>
+
+                <IonItem color='light' lines="none">
+                  <IonCheckbox value={'owndog'} slot="start" />
+                  <IonLabel>{t('sitterWizard.skill_medic')}</IonLabel>
+                </IonItem>
+
+                <IonItem color='light' lines="none">
+                  <IonCheckbox value={'couch'} slot="start" />
+                  <IonLabel>{t('sitterWizard.skill_inject')}</IonLabel>
+                </IonItem>
+
               </IonRow>
             </IonCol>
           }
@@ -250,7 +343,7 @@ const SitterWizard : React.FC = () => {
         </IonRow>
       </IonContent>
       {
-        step < 9 && <IonFooter>
+        step < 9 && <IonFooter className={isIOS()?'pb-4':''}>
         <IonRow className="w-full flex px-2 gap-2">
           {step!==0 && <IonButton onClick={()=>setStep(step - 1)} className="flex-1" color='success' fill="outline">{t('base.button.previous')}</IonButton>}
           <IonButton onClick={()=>setStep(step + 1)} className="flex-1" color='success'>Next</IonButton>

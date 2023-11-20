@@ -13,30 +13,62 @@ import {
 import imgAvatar from '../../assets/imgs/avatar.png'
 import { chevronForwardOutline, logOutOutline } from 'ionicons/icons'
 import { useIonRouter } from '@ionic/react'
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'react-i18next'
+import styled from 'styled-components'
+
+const StatusBar = styled(IonHeader)`
+  padding-top: constant(safe-area-inset-top); /* iOS 11.2+ */
+  padding-top: env(safe-area-inset-top); /* iOS 11.2+ */
+`
 
 const More: React.FC = () => {
   const router = useIonRouter()
   const { t, i18n } = useTranslation()
+  
+  const isIOS = () => {
+    const userAgent = window.navigator.userAgent.toLowerCase();
+    return /iphone|ipad|ipod/.test(userAgent);
+  }
+
   return (
     <IonPage>
-      <IonHeader>
-        <IonGrid className='responsive mb-6 p-0 pb-2' dir='column'>
-          <IonRow>
-            <IonText className='py-14 px-4 bg-green-600 text-white text-2xl w-full font-bold'>
-              {t('base.label.more')}
-            </IonText>
-          </IonRow>
-          <IonRow className='absolute bottom-0 pl-5 flex items-end'>
-            <IonAvatar class='-top-3 w-20 h-20 border-4 mr-3 rounded-full border-white flex justify-center items-center'>
-              <img src={imgAvatar} />
-            </IonAvatar>
-            <IonText className='text-lg font-bold'>
-              John Doe
-            </IonText>
-          </IonRow>
-        </IonGrid>
-      </IonHeader>
+      {isIOS() ?
+        <StatusBar className="flex items-center">
+          <IonGrid className='responsive mb-6 p-0 pb-2' dir='column'>
+            <IonRow>
+              <IonText className='py-14 px-4 bg-green-600 text-white text-2xl w-full font-bold'>
+                {t('base.label.more')}
+              </IonText>
+            </IonRow>
+            <IonRow className='absolute bottom-0 pl-5 flex items-end'>
+              <IonAvatar class='-top-3 w-20 h-20 border-4 mr-3 rounded-full border-white flex justify-center items-center'>
+                <img src={imgAvatar} />
+              </IonAvatar>
+              <IonText className='text-lg font-bold'>
+                John Doe
+              </IonText>
+            </IonRow>
+          </IonGrid>
+        </StatusBar>
+        :
+        <IonHeader>
+          <IonGrid className='responsive mb-6 p-0 pb-2' dir='column'>
+            <IonRow>
+              <IonText className='py-14 px-4 bg-green-600 text-white text-2xl w-full font-bold'>
+                {t('base.label.more')}
+              </IonText>
+            </IonRow>
+            <IonRow className='absolute bottom-0 pl-5 flex items-end'>
+              <IonAvatar class='-top-3 w-20 h-20 border-4 mr-3 rounded-full border-white flex justify-center items-center'>
+                <img src={imgAvatar} />
+              </IonAvatar>
+              <IonText className='text-lg font-bold'>
+                John Doe
+              </IonText>
+            </IonRow>
+          </IonGrid>
+        </IonHeader>
+      }
       <IonContent>
         <IonList lines='full'>
           <IonRow onClick={()=> router.push('/view-info')} className='relative flex justify-between p-5 ion-activatable ripple-parent'>
