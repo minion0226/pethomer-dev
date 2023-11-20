@@ -19,7 +19,8 @@ import {
   IonCardContent,
   IonLabel,
   IonInput,
-  useIonRouter
+  useIonRouter,
+  IonHeader
 } from '@ionic/react'
 import { useTranslation } from 'react-i18next'
 import { calendarOutline, closeOutline, filterOutline, search } from 'ionicons/icons'
@@ -46,6 +47,11 @@ const Dot = styled.div`
   background-color: red;
   position: absolute;
 `
+const StatusBar = styled(IonHeader)`
+  padding-top: constant(safe-area-inset-top); /* iOS 11.2+ */
+  padding-top: env(safe-area-inset-top); /* iOS 11.2+ */
+`
+
 
 const Booking: React.FC = () => {
   const router = useIonRouter()
@@ -57,8 +63,15 @@ const Booking: React.FC = () => {
     router.push('/chat')
   }
 
+  const isIOS = () => {
+    const userAgent = window.navigator.userAgent.toLowerCase();
+    return /iphone|ipad|ipod/.test(userAgent);
+  }
+
   return (
     <IonPage>
+      {isIOS()&&<StatusBar />}
+      
       <IonRow className='p-1 px-3 justify-between items-center'>
         <IonText className='text-2xl'>{t('base.label.chat')}</IonText>
         <IonButtons>

@@ -14,22 +14,41 @@ import {
   IonIcon,
   useIonRouter
 } from '@ionic/react'
+
+import { useState } from 'react';
+import { star } from 'ionicons/icons';
+import styled from 'styled-components';
 import { useTranslation } from 'react-i18next';
 
 import imgEmpty from '../../assets/imgs/default.png'
 import imgBanner from '../../assets/imgs/back3.png'
-import { useState } from 'react';
-import { star } from 'ionicons/icons';
+
+const StatusBar = styled(IonHeader)`
+  padding-top: constant(safe-area-inset-top); /* iOS 11.2+ */
+  padding-top: env(safe-area-inset-top); /* iOS 11.2+ */
+`
 
 const Profile: React.FC = () => {
   const router = useIonRouter()
   const { t, i18n } = useTranslation()
   const [list, setList] = useState([])
+
+  const isIOS = () => {
+    const userAgent = window.navigator.userAgent.toLowerCase();
+    return /iphone|ipad|ipod/.test(userAgent);
+  }
+
   return (
     <IonPage>
-      <IonHeader>
-        <IonText className='block p-4 text-lg'>{t('base.label.my_listing')}</IonText>
-      </IonHeader>
+      {isIOS() ?
+        <StatusBar>
+          <IonText className='block p-4 text-lg'>{t('base.label.my_listing')}</IonText>
+        </StatusBar>
+        :
+        <IonHeader>
+          <IonText className='block p-4 text-lg'>{t('base.label.my_listing')}</IonText>
+        </IonHeader>
+      }
       <IonContent color='light'>
         {
           list.length === 0 ?

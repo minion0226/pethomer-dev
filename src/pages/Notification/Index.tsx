@@ -15,15 +15,33 @@ import { notifications } from 'ionicons/icons';
 
 import imgEmpty from '../../assets/imgs/notification_empty.png'
 import { useState } from 'react';
+import styled from 'styled-components';
+
+const StatusBar = styled(IonHeader)`
+  padding-top: constant(safe-area-inset-top); /* iOS 11.2+ */
+  padding-top: env(safe-area-inset-top); /* iOS 11.2+ */
+`
 
 const Notification: React.FC = () => {
   const { t, i18n } = useTranslation()
   const [notificaiton, setNotification] = useState([])
+
+  const isIOS = () => {
+    const userAgent = window.navigator.userAgent.toLowerCase();
+    return /iphone|ipad|ipod/.test(userAgent);
+  }
+
   return (
     <IonPage>
-      <IonHeader>
-        <IonText class='block p-4 text-lg'>{t('base.label.notification')}</IonText>
-      </IonHeader>
+      {isIOS()?
+        <StatusBar>
+          <IonText class='block p-4 text-lg'>{t('base.label.notification')}</IonText>
+        </StatusBar>
+        :
+        <IonHeader>
+          <IonText class='block p-4 text-lg'>{t('base.label.notification')}</IonText>
+        </IonHeader>
+      }
       <IonContent color='light'>
         {
           notificaiton.length > 0 ? 

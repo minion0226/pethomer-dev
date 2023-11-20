@@ -29,11 +29,17 @@ const SendButton = styled(IonButton)`
   --padding-top: 10px;
   --padding-bottom: 10px;
 `
+const StatusBar = styled(IonHeader)`
+  padding-top: constant(safe-area-inset-top); /* iOS 11.2+ */
+  padding-top: env(safe-area-inset-top); /* iOS 11.2+ */
+`
+
 const Chat : React.FC = () => {
   const router = useIonRouter()
   const { t, i18n } = useTranslation()
   const [detailView, setDetailView] = useState(false)
   const [stage, setStage] = useState(0)
+  
   const handleChangeStage = () => {
     if(stage < 4) {
       setStage(stage + 1)
@@ -41,34 +47,69 @@ const Chat : React.FC = () => {
       router.push('/pay')
     }
   }
+  const isIOS = () => {
+    const userAgent = window.navigator.userAgent.toLowerCase();
+    return /iphone|ipad|ipod/.test(userAgent);
+  }
+
   return(
     <IonPage>
-      <IonHeader>
-        <IonRow className="border-b-2">
-          <IonCol className="flex flex-row items-center gap-2">
-            <IonIcon onClick={() => router.goBack()} icon={chevronBack} />
-            <IonAvatar>
-              <IonImg src={avatar} />
-            </IonAvatar>
-            <IonText>Alexandara G.</IonText>
-          </IonCol>
-          <div className="flex justify-end items-center">
-            <IonButton onClick={()=>setDetailView(!detailView)} color='success' fill="outline">
-              {t('profilePage.view_details')}
-              <IonIcon icon={detailView?chevronUp:chevronDown} />
-            </IonButton>
-          </div>
-        </IonRow>
-        <IonRow className="flex flex-row items-center gap-2 p-2">
-          <IonText className={stage >= 1?'text-yellow-500': ''}>{t('base.button.requested')}</IonText>
-          <IonIcon className={stage >= 1?'text-yellow-500': ''} icon={chevronForward} />
-          <IonText className={stage >= 2?'text-yellow-500': ''}>{t('base.button.accepted')}</IonText>
-          <IonIcon className={stage >= 3?'text-yellow-500': ''} icon={chevronForward} />
-          <IonText className={stage >= 3?'text-yellow-500': ''}>{t('base.button.paid')}</IonText>
-          <IonIcon className={stage >= 3?'text-yellow-500': ''} icon={chevronForward} />
-          <IonText className={stage >= 4?'text-yellow-500': ''}>{t('base.button.reviewed')}</IonText>
-        </IonRow>
-      </IonHeader>
+      
+      {isIOS() ?
+        <StatusBar>
+          <IonRow className="border-b-2">
+            <IonCol className="flex flex-row items-center gap-2">
+              <IonIcon onClick={() => router.goBack()} icon={chevronBack} />
+              <IonAvatar>
+                <IonImg src={avatar} />
+              </IonAvatar>
+              <IonText>Alexandara G.</IonText>
+            </IonCol>
+            <div className="flex justify-end items-center">
+              <IonButton onClick={()=>setDetailView(!detailView)} color='success' fill="outline">
+                {t('profilePage.view_details')}
+                <IonIcon icon={detailView?chevronUp:chevronDown} />
+              </IonButton>
+            </div>
+          </IonRow>
+          <IonRow className="flex flex-row items-center gap-2 p-2">
+            <IonText className={stage >= 1?'text-yellow-500': ''}>{t('base.button.requested')}</IonText>
+            <IonIcon className={stage >= 1?'text-yellow-500': ''} icon={chevronForward} />
+            <IonText className={stage >= 2?'text-yellow-500': ''}>{t('base.button.accepted')}</IonText>
+            <IonIcon className={stage >= 3?'text-yellow-500': ''} icon={chevronForward} />
+            <IonText className={stage >= 3?'text-yellow-500': ''}>{t('base.button.paid')}</IonText>
+            <IonIcon className={stage >= 3?'text-yellow-500': ''} icon={chevronForward} />
+            <IonText className={stage >= 4?'text-yellow-500': ''}>{t('base.button.reviewed')}</IonText>
+          </IonRow>
+        </StatusBar>
+        :
+        <IonHeader>
+          <IonRow className="border-b-2">
+            <IonCol className="flex flex-row items-center gap-2">
+              <IonIcon onClick={() => router.goBack()} icon={chevronBack} />
+              <IonAvatar>
+                <IonImg src={avatar} />
+              </IonAvatar>
+              <IonText>Alexandara G.</IonText>
+            </IonCol>
+            <div className="flex justify-end items-center">
+              <IonButton onClick={()=>setDetailView(!detailView)} color='success' fill="outline">
+                {t('profilePage.view_details')}
+                <IonIcon icon={detailView?chevronUp:chevronDown} />
+              </IonButton>
+            </div>
+          </IonRow>
+          <IonRow className="flex flex-row items-center gap-2 p-2">
+            <IonText className={stage >= 1?'text-yellow-500': ''}>{t('base.button.requested')}</IonText>
+            <IonIcon className={stage >= 1?'text-yellow-500': ''} icon={chevronForward} />
+            <IonText className={stage >= 2?'text-yellow-500': ''}>{t('base.button.accepted')}</IonText>
+            <IonIcon className={stage >= 3?'text-yellow-500': ''} icon={chevronForward} />
+            <IonText className={stage >= 3?'text-yellow-500': ''}>{t('base.button.paid')}</IonText>
+            <IonIcon className={stage >= 3?'text-yellow-500': ''} icon={chevronForward} />
+            <IonText className={stage >= 4?'text-yellow-500': ''}>{t('base.button.reviewed')}</IonText>
+          </IonRow>
+        </IonHeader>
+      }
       <IonContent color='light relative'>
         {
           detailView && <IonCard className="p-2">

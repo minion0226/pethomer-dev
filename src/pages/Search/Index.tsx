@@ -25,6 +25,10 @@ import { useTranslation } from 'react-i18next'
 const CustomInput = styled(IonInput)`
   --padding-start: 10px;
 `
+const StatusBar = styled(IonHeader)`
+  padding-top: constant(safe-area-inset-top); /* iOS 11.2+ */
+  padding-top: env(safe-area-inset-top); /* iOS 11.2+ */
+`
 
 const Search: React.FC = () => {
   const router =  useIonRouter()
@@ -35,28 +39,56 @@ const Search: React.FC = () => {
     router.push('/detail')
   }
 
+  const isIOS = () => {
+    const userAgent = window.navigator.userAgent.toLowerCase();
+    return /iphone|ipad|ipod/.test(userAgent);
+  }
+
   return (
     <IonPage>
-      <IonHeader>
-        <IonRow className='justify-between items-center'>
-          <IonButton onClick={()=>router.goBack()} fill='clear'>
-            <IonIcon icon={chevronBack} />
-          </IonButton>
-          <IonText>{t('base.label.search_result')}</IonText>
-          <IonButton onClick={() => setOpen(true)} className='rounded-full' fill='clear'>
-            <IonIcon icon={funnelOutline} />
-          </IonButton>
-        </IonRow>
-        <IonRow className='mx-3 justify-between items-center'>
-          <IonText>100 {t('base.label.result')}</IonText>
-          <IonRow className='flex flex-row flex-nowrap items-center'>
-            <IonText className='whitespace-nowrap'>{t('base.label.sort_by')}</IonText>
-            <IonButton fill='clear' className='px-0' size='small' color='medium'>
-              <IonIcon icon={chevronDownOutline} />
+      {isIOS() ?
+        <StatusBar>
+          <IonRow className='justify-between items-center'>
+            <IonButton onClick={()=>router.goBack()} fill='clear'>
+              <IonIcon icon={chevronBack} />
+            </IonButton>
+            <IonText>{t('base.label.search_result')}</IonText>
+            <IonButton onClick={() => setOpen(true)} className='rounded-full' fill='clear'>
+              <IonIcon icon={funnelOutline} />
             </IonButton>
           </IonRow>
-        </IonRow>
-      </IonHeader>
+          <IonRow className='mx-3 justify-between items-center'>
+            <IonText>100 {t('base.label.result')}</IonText>
+            <IonRow className='flex flex-row flex-nowrap items-center'>
+              <IonText className='whitespace-nowrap'>{t('base.label.sort_by')}</IonText>
+              <IonButton fill='clear' className='px-0' size='small' color='medium'>
+                <IonIcon icon={chevronDownOutline} />
+              </IonButton>
+            </IonRow>
+          </IonRow>
+        </StatusBar> 
+        :
+        <IonHeader>
+          <IonRow className='justify-between items-center'>
+            <IonButton onClick={()=>router.goBack()} fill='clear'>
+              <IonIcon icon={chevronBack} />
+            </IonButton>
+            <IonText>{t('base.label.search_result')}</IonText>
+            <IonButton onClick={() => setOpen(true)} className='rounded-full' fill='clear'>
+              <IonIcon icon={funnelOutline} />
+            </IonButton>
+          </IonRow>
+          <IonRow className='mx-3 justify-between items-center'>
+            <IonText>100 {t('base.label.result')}</IonText>
+            <IonRow className='flex flex-row flex-nowrap items-center'>
+              <IonText className='whitespace-nowrap'>{t('base.label.sort_by')}</IonText>
+              <IonButton fill='clear' className='px-0' size='small' color='medium'>
+                <IonIcon icon={chevronDownOutline} />
+              </IonButton>
+            </IonRow>
+          </IonRow>
+        </IonHeader>
+      }
       <IonContent>
         <IonRow>
           <IonCol className='relative mx-3 my-1 ion-activatable ripple-parent' onClick={handleViewDetail}>

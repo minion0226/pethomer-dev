@@ -35,6 +35,10 @@ const FilterModal = styled(IonModal)`
     
   }
 `
+const StatusBar = styled(IonHeader)`
+  padding-top: constant(safe-area-inset-top); /* iOS 11.2+ */
+  padding-top: env(safe-area-inset-top); /* iOS 11.2+ */
+`
 
 const Gallery: React.FC = () => {
   const router = useIonRouter()
@@ -46,15 +50,29 @@ const Gallery: React.FC = () => {
     setSelectedOne(image)
     setOpen(true)
   }
+  
+  const isIOS = () => {
+    const userAgent = window.navigator.userAgent.toLowerCase();
+    return /iphone|ipad|ipod/.test(userAgent);
+  }
 
   return(
     <IonPage>
-      <IonHeader className="flex items-center">
-        <IonButton onClick={()=>router.goBack()} fill="clear" color="dark">
-          <IonIcon icon={chevronBack} />
-        </IonButton>
-        <IonText className="text-2xl">{t('base.label.gallery')}</IonText>
-      </IonHeader>
+      {isIOS() ?
+        <StatusBar>
+          <IonButton onClick={()=>router.goBack()} fill="clear" color="dark">
+            <IonIcon icon={chevronBack} />
+          </IonButton>
+          <IonText className="text-2xl">{t('base.label.gallery')}</IonText>
+        </StatusBar>
+        :
+        <IonHeader className="flex items-center">
+          <IonButton onClick={()=>router.goBack()} fill="clear" color="dark">
+            <IonIcon icon={chevronBack} />
+          </IonButton>
+          <IonText className="text-2xl">{t('base.label.gallery')}</IonText>
+        </IonHeader>
+      }
       <IonContent>
         <IonRow className="px-2">
           <IonCol size="12" className="pb-0.5">

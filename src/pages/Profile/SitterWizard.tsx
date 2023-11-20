@@ -10,6 +10,10 @@ const Dash = styled.div`
 const CustomInput = styled(IonInput)`
   --padding-start: 10px;
 `
+const StatusBar = styled(IonHeader)`
+  padding-top: constant(safe-area-inset-top); /* iOS 11.2+ */
+  padding-top: env(safe-area-inset-top); /* iOS 11.2+ */
+`
 
 const titles = [
   'Description',
@@ -34,21 +38,42 @@ const SitterWizard : React.FC = () => {
   const [acctype, setAcctype] = useState(false)
   const [desc, setDesc] = useState(true)
 
+  const isIOS = () => {
+    const userAgent = window.navigator.userAgent.toLowerCase();
+    return /iphone|ipad|ipod/.test(userAgent);
+  }
+
   return (
     <IonPage>
-      <IonHeader>
-        <IonRow className="p-4 flex flex-row items-center gap-2">
-          <IonIcon onClick={() => router.goBack()} icon={chevronBack} />
-          <IonText className="text-lg font-bold">{titles[step]}</IonText>
-        </IonRow>
-        <IonRow className="flex flex-row gap-1 bg-gradient-to-r from-green-200 via-60% via-transparent to-transparent">
-          {
-            titles.map((title: string, index: number) => {
-              return <Dash key={index} className={step>=index? 'bg-green-400': ''} />
-            })
-          }
-        </IonRow>
-      </IonHeader>
+      {isIOS() ?
+        <StatusBar>
+          <IonRow className="p-4 flex flex-row items-center gap-2">
+            <IonIcon onClick={() => router.goBack()} icon={chevronBack} />
+            <IonText className="text-lg font-bold">{titles[step]}</IonText>
+          </IonRow>
+          <IonRow className="flex flex-row gap-1 bg-gradient-to-r from-green-200 via-60% via-transparent to-transparent">
+            {
+              titles.map((title: string, index: number) => {
+                return <Dash key={index} className={step>=index? 'bg-green-400': ''} />
+              })
+            }
+          </IonRow>
+        </StatusBar>
+        :
+        <IonHeader>
+          <IonRow className="p-4 flex flex-row items-center gap-2">
+            <IonIcon onClick={() => router.goBack()} icon={chevronBack} />
+            <IonText className="text-lg font-bold">{titles[step]}</IonText>
+          </IonRow>
+          <IonRow className="flex flex-row gap-1 bg-gradient-to-r from-green-200 via-60% via-transparent to-transparent">
+            {
+              titles.map((title: string, index: number) => {
+                return <Dash key={index} className={step>=index? 'bg-green-400': ''} />
+              })
+            }
+          </IonRow>
+        </IonHeader>
+      }
       <IonContent>
         <IonRow className="h-full">
           {

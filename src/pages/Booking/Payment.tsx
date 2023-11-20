@@ -33,6 +33,10 @@ import { useTranslation } from "react-i18next"
 const CustomInput = styled(IonInput)`
   --padding-start: 10px;
 `
+const StatusBar = styled(IonHeader)`
+  padding-top: constant(safe-area-inset-top); /* iOS 11.2+ */
+  padding-top: env(safe-area-inset-top); /* iOS 11.2+ */
+`
 
 const Payment : React.FC = () => {
   const router = useIonRouter()
@@ -40,11 +44,22 @@ const Payment : React.FC = () => {
 
   const [open, setOpen] = useState(false)
 
+  const isIOS = () => {
+    const userAgent = window.navigator.userAgent.toLowerCase();
+    return /iphone|ipad|ipod/.test(userAgent);
+  }
+
   return(
     <IonPage>
-      <IonHeader>
-        <IonText className="text-lg p-4 block">{t('base.label.payment')}</IonText>
-      </IonHeader>
+      {isIOS() ?
+        <StatusBar>
+          <IonText className="text-lg p-4 block">{t('base.label.payment')}</IonText>
+        </StatusBar>
+      :
+        <IonHeader>
+          <IonText className="text-lg p-4 block">{t('base.label.payment')}</IonText>
+        </IonHeader>
+      }
       <IonContent color='light'>
         <IonCard className="p-2 mb-2">
           <IonRow className="gap-2">

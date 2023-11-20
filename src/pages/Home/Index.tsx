@@ -50,12 +50,11 @@ const Select = styled(IonSelect)`
     width: 100%;
   }
 `
-
 const StatusBar = styled(IonHeader)`
+  background: #f4f5f8;
   padding-top: constant(safe-area-inset-top); /* iOS 11.2+ */
   padding-top: env(safe-area-inset-top); /* iOS 11.2+ */
 `
-
 
 const Home: React.FC = () => {
   const { t, i18n } = useTranslation()
@@ -125,7 +124,7 @@ const Home: React.FC = () => {
       <IonModal
         isOpen={sheetOpen} 
         onDidDismiss={()=>setSheetOpen(false)}
-        // initialBreakpoint={0.85}
+        initialBreakpoint={0.85}
         breakpoints={[0, 0.25, 0.5, 0.85]}>
         <IonContent>
           <IonRow className='p-3 flex justify-between items-center'>
