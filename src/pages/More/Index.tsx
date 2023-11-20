@@ -21,7 +21,7 @@ const More: React.FC = () => {
   return (
     <IonPage>
       <IonHeader>
-        <IonGrid className='responsive mb-6' dir='column'>
+        <IonGrid className='responsive mb-6 p-0 pb-2' dir='column'>
           <IonRow>
             <IonText className='py-14 px-4 bg-green-600 text-white text-2xl w-full font-bold'>
               {t('base.label.more')}

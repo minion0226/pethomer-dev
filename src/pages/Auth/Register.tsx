@@ -5,7 +5,8 @@ import {
   IonButton,
   IonCol,
   IonContent,
-  IonText
+  IonText,
+  IonHeader
 } from '@ionic/react'
 import styled from 'styled-components'
 import { useState } from 'react'
@@ -47,6 +48,12 @@ const SigninBtn = styled(IonButton)`
     color: white;
   }
 `
+
+const StatusBar = styled(IonHeader)`
+  padding-top: constant(safe-area-inset-top); /* iOS 11.2+ */
+  padding-top: env(safe-area-inset-top); /* iOS 11.2+ */
+`
+
 const Register: React.FC = () => {
   const router = useIonRouter()
   const [tab, setTab] = useState(false)
@@ -61,8 +68,15 @@ const Register: React.FC = () => {
     else
       router.push('/login')
   }
+
+  const isIOS = () => {
+    const userAgent = window.navigator.userAgent.toLowerCase();
+    return /iphone|ipad|ipod/.test(userAgent);
+  }
+
   return (
     <IonPage>
+      {isIOS()&&<StatusBar />}
       <IonContent>
         <IonCol className='flex flex-col justify-center px-3'>
           <IonRow className='my-1'>

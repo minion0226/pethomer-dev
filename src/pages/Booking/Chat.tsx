@@ -52,12 +52,12 @@ const Chat : React.FC = () => {
             </IonAvatar>
             <IonText>Alexandara G.</IonText>
           </IonCol>
-          <IonCol className="flex justify-end items-center">
+          <div className="flex justify-end items-center">
             <IonButton onClick={()=>setDetailView(!detailView)} color='success' fill="outline">
               {t('profilePage.view_details')}
               <IonIcon icon={detailView?chevronUp:chevronDown} />
             </IonButton>
-          </IonCol>
+          </div>
         </IonRow>
         <IonRow className="flex flex-row items-center gap-2 p-2">
           <IonText className={stage >= 1?'text-yellow-500': ''}>{t('base.button.requested')}</IonText>

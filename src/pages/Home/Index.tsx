@@ -14,6 +14,7 @@ import {
   IonSelect,
   IonSelectOption,
   useIonRouter,
+  IonHeader,
 } from '@ionic/react'
 
 import Logo from '../../assets/imgs/logo.png'
@@ -50,6 +51,12 @@ const Select = styled(IonSelect)`
   }
 `
 
+const StatusBar = styled(IonHeader)`
+  padding-top: constant(safe-area-inset-top); /* iOS 11.2+ */
+  padding-top: env(safe-area-inset-top); /* iOS 11.2+ */
+`
+
+
 const Home: React.FC = () => {
   const { t, i18n } = useTranslation()
   const router = useIonRouter();
@@ -64,8 +71,14 @@ const Home: React.FC = () => {
     router.push('/search')
   }
 
+  const isIOS = () => {
+    const userAgent = window.navigator.userAgent.toLowerCase();
+    return /iphone|ipad|ipod/.test(userAgent);
+  }
+
   return (
     <IonPage>
+      {isIOS()&&<StatusBar />}
       <IonContent color='light'>
         <IonRow class='flex justify-center'>
           <IonImg src={Logo} />
@@ -84,13 +97,13 @@ const Home: React.FC = () => {
           <IonCol onClick={()=> handleFilter('boarding')} class='ion-activatable ripple-parent relative py-2 flex flex-col items-center border-amber-400 bg-white border rounded-md m-3'>
             <IonRippleEffect></IonRippleEffect> 
             <IonImg src={boardingImg} class='w-12 h-12 mb-2' />
-            <IonLabel>{t('homePage.boarding')}</IonLabel>
+            <IonLabel className='text-center px-1'>{t('homePage.boarding')}</IonLabel>
             <IonIcon className='absolute block w-6 h-6 top-2 right-2 text-amber-400' icon={checkmarkCircle} />
           </IonCol>
           <IonCol class='ion-activatable ripple-parent relative py-2 flex flex-col items-center bg-white border-gray-200 border rounded-md m-3'>
             <IonRippleEffect></IonRippleEffect> 
             <IonImg src={careImg} class='w-12 h-12 mb-2' />
-            <IonLabel>{t('homePage.dogwalking')}</IonLabel>
+            <IonLabel className='text-center px-1'>{t('homePage.dogwalking')}</IonLabel>
             <IonIcon className='absolute block w-6 h-6 top-2 right-2 text-gray-300' icon={ellipseOutline} />
           </IonCol>
         </IonRow>
@@ -98,13 +111,13 @@ const Home: React.FC = () => {
           <IonCol class='ion-activatable ripple-parent relative py-2 flex flex-col items-center bg-white border-gray-200 border rounded-md m-3'>
             <IonRippleEffect></IonRippleEffect> 
             <IonImg src={visitImg} class='w-12 h-12 mb-2' />
-            <IonLabel>{t('homePage.dropinvisits')}</IonLabel>
+            <IonLabel className='text-center px-1'>{t('homePage.dropinvisits')}</IonLabel>
             <IonIcon className='absolute block w-6 h-6 top-2 right-2 text-gray-300' icon={ellipseOutline} />
           </IonCol>
           <IonCol class='ion-activatable ripple-parent relative py-2 flex flex-col items-center bg-white border-gray-200 border rounded-md m-3'>
             <IonRippleEffect></IonRippleEffect> 
             <IonImg src={walkingImg} class='w-12 h-12 mb-2' />
-            <IonLabel>{t('homePage.dogdaycare')}</IonLabel>
+            <IonLabel className='text-center px-1'>{t('homePage.dogdaycare')}</IonLabel>
             <IonIcon className='absolute block w-6 h-6 top-2 right-2 text-gray-300' icon={ellipseOutline} />
           </IonCol>
         </IonRow>
@@ -112,7 +125,7 @@ const Home: React.FC = () => {
       <IonModal
         isOpen={sheetOpen} 
         onDidDismiss={()=>setSheetOpen(false)}
-        initialBreakpoint={0.85}
+        // initialBreakpoint={0.85}
         breakpoints={[0, 0.25, 0.5, 0.85]}>
         <IonContent>
           <IonRow className='p-3 flex justify-between items-center'>

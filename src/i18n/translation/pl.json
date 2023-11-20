@@ -162,7 +162,8 @@
       "boarding": "Abordaż",
       "dogwalking": "Spacer z psem",
       "dropinvisits": "Spadek wizyt",
-      "dogdaycare": "Opieka dzienna nad psem"
+      "dogdaycare": "Opieka dzienna nad psem",
+      "multiplier": "Mnoznik Ceny"
     },
 
     "notificationPage": {

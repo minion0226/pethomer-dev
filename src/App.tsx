@@ -31,14 +31,16 @@ import './theme/main.css';
 
 setupIonicReact();
 
-const App: React.FC = () => (
-  <Provider store={store}>
-    <IonApp>
-      <I18nextProvider i18n={i18n}>
-        <AppRouter />
-      </I18nextProvider>
-    </IonApp>
-  </Provider>
-);
+const App: React.FC = () => {
+  return (
+    <Provider store={store}>
+      <IonApp>
+        <I18nextProvider i18n={i18n}>
+          <AppRouter />
+        </I18nextProvider>
+      </IonApp>
+    </Provider>
+  );
+};
 
 export default App;

@@ -12,7 +12,6 @@ import { useIonRouter } from '@ionic/react'
 const Container = styled(IonCol)`
   background: rgba(204, 204, 204, 0.10);
 `
-
 const Selection = styled(IonButton)`
   border-radius: 10px;
   border: 1px solid rgba(0, 0, 0, 0.10);

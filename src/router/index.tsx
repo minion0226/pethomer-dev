@@ -22,7 +22,7 @@ const Dot = styled.div`
   background-color: red;
   position: absolute;
   top: 0.25rem;
-  right: 1.25rem;
+  right: calc(50% - 1rem);
 `
 
 const AppRouter: React.FC = () => {
@@ -42,28 +42,28 @@ const AppRouter: React.FC = () => {
             </IonRouterOutlet>
 
             <IonTabBar slot='bottom' className='py-2 rounded-t-xl'>
-              <IonTabButton className='ion-activatable ripple-parent rounded-md relative' tab='explorer' href='/tab/home'>
+              <IonTabButton className='ion-activatable ripple-parent rounded-md relative w-1/5' tab='explorer' href='/tab/home'>
                 <IonRippleEffect></IonRippleEffect>
                 <IonIcon className='text-2xl' icon={homeOutline} />
                 <IonLabel>{t('base.label.explorer')}</IonLabel>
               </IonTabButton>
-              <IonTabButton className='ion-activatable ripple-parent rounded-md relative' tab='booking' href='/tab/booking'>
+              <IonTabButton className='ion-activatable ripple-parent rounded-md relative w-1/5' tab='booking' href='/tab/booking'>
                 <IonRippleEffect></IonRippleEffect>
                 <IonIcon className='text-2xl' icon={calendarOutline} />
                 <IonLabel>{t('base.label.booking')}</IonLabel>
               </IonTabButton>
-              <IonTabButton className='ion-activatable ripple-parent rounded-md relative' tab='notification' href='/tab/notification'>
+              <IonTabButton className='ion-activatable ripple-parent rounded-md relative w-1/5' tab='notification' href='/tab/notification'>
                 <IonRippleEffect></IonRippleEffect>
                 <IonIcon className='text-2xl' icon={notificationsOutline} />
                 <IonLabel>{t('base.label.notification')}</IonLabel>
                 <Dot className='rounded-full' />
               </IonTabButton>
-              <IonTabButton className='ion-activatable ripple-parent rounded-md relative' tab='profile' href='/tab/profile'>
+              <IonTabButton className='ion-activatable ripple-parent rounded-md relative w-1/5' tab='profile' href='/tab/profile'>
                 <IonRippleEffect></IonRippleEffect>
                 <IonIcon className='text-2xl' icon={personOutline} />
                 <IonLabel>{t('base.label.profile')}</IonLabel>
               </IonTabButton>
-              <IonTabButton className='ion-activatable ripple-parent rounded-md relative' tab='more' href='/tab/more'>
+              <IonTabButton className='ion-activatable ripple-parent rounded-md relative w-1/5' tab='more' href='/tab/more'>
                 <IonRippleEffect></IonRippleEffect>
                 <IonIcon className='text-2xl' icon={ellipsisHorizontalOutline} />
                 <IonLabel>{t('base.label.more')}</IonLabel>

@@ -67,7 +67,7 @@ const SitterWizard : React.FC = () => {
           {
             step === 1 && <IonCol className="p-4">
               <IonText className="text-2xl font-semibold text-green-500 mb-4 block w-full">{t('sitterWizard.question_services')}</IonText>
-              <IonRow className="bg-gray-200 rounded-md p-4 flex flex-col gap-3">
+              <IonRow className="bg-gray-200 rounded-md p-4 flex flex-col gap-3 justify-start overflow-hidden">
                 <IonCheckbox value={'boarding'} labelPlacement="end" justify="start">{t('homePage.boarding')}</IonCheckbox>
                 <IonCheckbox value={'dogwalking'} labelPlacement="end" justify="start">{t('homePage.dogwalking')}</IonCheckbox>
                 <IonCheckbox value={'dropinvisit'} labelPlacement="end" justify="start">{t('homePage.dropinvisits')}</IonCheckbox>
@@ -78,7 +78,7 @@ const SitterWizard : React.FC = () => {
           {
             step === 2 && <IonCol className="p-4">
               <IonText className="text-2xl font-semibold text-green-500 mb-4 block w-full">{t('sitterWizard.question_preference')}</IonText>
-              <IonRow className="bg-gray-200 rounded-md p-4 flex flex-col gap-3">
+              <IonRow className="bg-gray-200 rounded-md p-4 flex flex-col gap-3 justify-start overflow-hidden">
                 <IonCheckbox value={'small'} labelPlacement="end" justify="start">{t('base.label.weight_small')}</IonCheckbox>
                 <IonCheckbox value={'medium'} labelPlacement="end" justify="start">{t('base.label.weight_medium')}</IonCheckbox>
                 <IonCheckbox value={'large'} labelPlacement="end" justify="start">{t('base.label.weight_large')}</IonCheckbox>
@@ -89,7 +89,7 @@ const SitterWizard : React.FC = () => {
           {
             step === 3 && <IonCol className="p-4">
               <IonText className="text-2xl font-semibold text-green-500 mb-4 block w-full">{t('sitterWizard.question_sitter')}</IonText>
-              <IonRow className="bg-gray-200 rounded-md p-4 flex flex-col gap-3">
+              <IonRow className="bg-gray-200 rounded-md p-4 flex flex-col gap-3 justify-start overflow-hidden">
                 <IonCheckbox value={'smoking'} labelPlacement="end" justify="start">{t('sitterWizard.smoking')}</IonCheckbox>
                 <IonCheckbox value={'single'} labelPlacement="end" justify="start">{t('sitterWizard.single')}</IonCheckbox>
                 <IonCheckbox value={'garden'} labelPlacement="end" justify="start">{t('sitterWizard.garden')}</IonCheckbox>
@@ -104,7 +104,7 @@ const SitterWizard : React.FC = () => {
           {
             step === 4 && <IonCol className="p-4">
               <IonText className="text-2xl font-semibold text-green-500 mb-4 block w-full">{t('sitterWizard.question_skills')}</IonText>
-              <IonRow className="bg-gray-200 rounded-md p-4 flex flex-col gap-3">
+              <IonRow className="bg-gray-200 rounded-md p-4 flex flex-col gap-3 justify-start overflow-hidden">
                 <IonCheckbox value={'smoking'} labelPlacement="end" justify="start">{t('sitterWizard.skill_carrying')}</IonCheckbox>
                 <IonCheckbox value={'single'} labelPlacement="end" justify="start">{t('sitterWizard.skill_active_dog')}</IonCheckbox>
                 <IonCheckbox value={'garden'} labelPlacement="end" justify="start">{t('sitterWizard.skill_senior_dog')}</IonCheckbox>
@@ -135,15 +135,15 @@ const SitterWizard : React.FC = () => {
             step === 7 && <IonCol className="p-4">
               <IonText className="text-2xl font-semibold text-green-500 mb-4 block w-full">{t('sitterWizard.question_pricing')}</IonText>
               <IonText className="mb-2 block w-full">{t('homePage.boarding')}</IonText>
-              <CustomInput className="border-2 rounded-md px-3 mb-3" placeholder={('sitterWizard.price')} />
+              <CustomInput className="border-2 rounded-md px-3 mb-3" placeholder={t('sitterWizard.price')} />
               <IonText className="mb-2 block w-full">{t('homePage.dogwalking')}</IonText>
-              <CustomInput className="border-2 rounded-md px-3 mb-3" placeholder={('sitterWizard.price')} />
-              <IonText className="mb-2 block w-full">{('homePage.dropinvisits')}</IonText>
-              <CustomInput className="border-2 rounded-md px-3 mb-3" placeholder={('sitterWizard.price')} />
+              <CustomInput className="border-2 rounded-md px-3 mb-3" placeholder={t('sitterWizard.price')} />
+              <IonText className="mb-2 block w-full">{t('homePage.dropinvisits')}</IonText>
+              <CustomInput className="border-2 rounded-md px-3 mb-3" placeholder={t('sitterWizard.price')} />
               <IonText className="mb-2 block w-full">{t('homePage.dogdaycare')}</IonText>
-              <CustomInput className="border-2 rounded-md px-3 mb-3" placeholder={('sitterWizard.price')} />
-              <IonText className="mb-2 block w-full">{('homePage.')}</IonText>
-              <CustomInput className="border-2 rounded-md px-3 mb-3" placeholder={('sitterWizard.price')} />
+              <CustomInput className="border-2 rounded-md px-3 mb-3" placeholder={t('sitterWizard.price')} />
+              <IonText className="mb-2 block w-full">{t('homePage.mulitplier')}</IonText>
+              <CustomInput className="border-2 rounded-md px-3 mb-3" placeholder={t('sitterWizard.price')} />
             </IonCol>
           }
           {

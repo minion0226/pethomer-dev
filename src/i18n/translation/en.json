@@ -161,7 +161,8 @@
       "boarding": "Boarding",
       "dogwalking": "Dog Walking",
       "dropinvisits": "Drop In Visits",
-      "dogdaycare": "Dog Day Care"
+      "dogdaycare": "Dog Day Care",
+      "mulitplier": "Price Multiplier"
     },
 
     "notificationPage": {
